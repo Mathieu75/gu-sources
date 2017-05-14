@@ -1,5 +1,6 @@
 import { CircoService } from '../circo.service';
 import { Component, OnInit } from '@angular/core';
+import { accentFold } from '../../shared/accent-folding';
 
 @Component({
   selector: 'app-search',
@@ -22,7 +23,7 @@ export class SearchComponent implements OnInit {
 
   onSearchChange($event) {
     this.filteredCircos = this.circos.filter(circos => {
-      return circos.gsx$nom.$t.toUpperCase().includes(this.model.search.toUpperCase());
+      return accentFold(circos.gsx$nom.$t).toUpperCase().includes(accentFold(this.model.search).toUpperCase());
     });
   }
 }
