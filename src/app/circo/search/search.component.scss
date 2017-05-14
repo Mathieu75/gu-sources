@@ -1,0 +1,37 @@
+
+
+input[type="text"] {
+    background-image: url("/assets/search-icon.png");
+    background-position: 10px 12px;
+    background-repeat: no-repeat;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    display: block;
+    width: calc(100% - 60px);
+    padding: 12px 20px 12px 40px;
+}
+
+.rslt {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+    font-weight: bold;
+
+    li {
+        background-color: rgba(126,183,18,.64);
+        margin: 0.5em 0;
+        padding: 1em 1em;
+        border-radius: 4px;
+        box-shadow: 0 3px 3px 0 rgba(0,0,0,0.14), 0 1px 7px 0 rgba(0,0,0,0.12), 0 3px 1px -1px rgba(0,0,0,0.2)
+    }
+
+    li:hover {
+        background-color: rgba(126,183,18,.88);
+    }
+
+    a {
+        text-decoration: none;
+        color: #fff;
+    }
+}

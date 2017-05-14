@@ -1,0 +1,12 @@
+<div>
+  <input type="text" [(ngModel)]="model.search" (ngModelChange)="onSearchChange($event)" placeholder="Rechercher votre circonscription ..."
+  />
+  <ul class="rslt" *ngIf="model.search">
+    <a *ngFor="let circo of filteredCircos" 
+      [routerLink]="['/circo', circo.gsx$codecirconscription.$t]">
+      <li>
+        {{circo.gsx$nom.$t}}
+      </li>
+    </a>
+  </ul>
+</div>

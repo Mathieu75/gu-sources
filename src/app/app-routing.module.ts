@@ -1,3 +1,4 @@
+import { ShowComponent } from './circo/show/show.component';
 import { HomeComponent } from './core/home/home.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -11,6 +12,10 @@ const routes: Routes = [
   {
     path: 'home',
     component: HomeComponent
+  },
+  {
+    path: 'circo/:id',
+    component: ShowComponent
   }
 ];
 

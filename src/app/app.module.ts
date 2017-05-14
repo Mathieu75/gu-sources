@@ -1,3 +1,4 @@
+import { CircoModule } from './circo/circo.module';
 import { AppRoutingModule } from './app-routing.module';
 import { CoreModule } from './core/core.module';
 import { BrowserModule } from '@angular/platform-browser';
@@ -16,7 +17,8 @@ import { AppComponent } from './app.component';
     FormsModule,
     HttpModule,
     CoreModule,
-    AppRoutingModule
+    AppRoutingModule,
+    CircoModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
