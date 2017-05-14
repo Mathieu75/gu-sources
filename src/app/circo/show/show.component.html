@@ -1,3 +1,8 @@
-<p>
-  show works!
-</p>
+<div>
+  <div *ngFor="let candidat of candidats.data">
+    {{candidat.gsx$nom.$t}}
+  </div>
+  <div *ngIf="candidats.retrieved && candidats.data.length < 1">
+    NOK
+  </div>
+</div>
