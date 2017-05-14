@@ -1,4 +1,4 @@
-import { ValeursComponent } from './valeurs/valeurs.component';
+import { CharteComponent } from './charte/charte.component';
 import { PrincipeComponent } from './principe/principe.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -9,8 +9,8 @@ const routes: Routes = [
     component: PrincipeComponent
   },
   {
-    path: 'valeurs',
-    component: ValeursComponent
+    path: 'charte',
+    component: CharteComponent
   }
 ];
 

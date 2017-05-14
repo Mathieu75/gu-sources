@@ -2,7 +2,7 @@ import { ArticlesRoutingModule } from './actiles-routing.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PrincipeComponent } from './principe/principe.component';
-import { ValeursComponent } from './valeurs/valeurs.component';
+import { CharteComponent } from './charte/charte.component';
 
 @NgModule({
   imports: [
@@ -11,7 +11,7 @@ import { ValeursComponent } from './valeurs/valeurs.component';
   ],
   declarations: [
     PrincipeComponent,
-    ValeursComponent
+    CharteComponent
   ]
 })
 export class ArticlesModule { }
