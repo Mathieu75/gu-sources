@@ -1,3 +1,4 @@
+import { RouterModule } from '@angular/router';
 import { CandidatModule } from './candidat/candidat.module';
 import { CircoModule } from './circo/circo.module';
 import { AppRoutingModule } from './app-routing.module';
@@ -15,6 +16,7 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
+    RouterModule,
     FormsModule,
     HttpModule,
     CoreModule,

@@ -2,7 +2,7 @@
   <svg (click)="menu = !menu" aria-hidden="true" class="burger" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 17 15">
     <path d="M0 0v3h17V0H0zm0 9h17V6H0v3zm0 6h17v-3H0v3z"></path>
   </svg>
-  <a href="#" class="title">
+  <a routerLink="/home" class="title">
     La Gauche Unie
   </a>
 
@@ -10,10 +10,10 @@
     <a class="button" href="#">
       Vous engager
     </a>
-    <a href="#"> 
+    <a href="#" [routerLink]="['/articles', 'principe']"> 
       Le principe
     </a>
-    <a href="#"> 
+    <a href="#" [routerLink]="['/articles', 'valeurs']"> 
       Vos valeurs
     </a>
     <a href="#"> 

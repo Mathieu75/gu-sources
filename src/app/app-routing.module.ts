@@ -16,6 +16,10 @@ const routes: Routes = [
   {
     path: 'circo/:id',
     component: ShowComponent
+  },
+  {
+    path: 'articles',
+    loadChildren: 'app/articles/articles.module#ArticlesModule'
   }
 ];
 
