@@ -5,16 +5,18 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
+import { MilitHomeComponent } from './milit-home/milit-home.component';
 
 @NgModule({
   imports: [
     CommonModule,
+    RouterModule,
     CircoModule,
-    RouterModule
   ],
   declarations: [
     HeaderComponent,
-    HomeComponent
+    HomeComponent,
+    MilitHomeComponent
   ],
   exports: [
     HeaderComponent

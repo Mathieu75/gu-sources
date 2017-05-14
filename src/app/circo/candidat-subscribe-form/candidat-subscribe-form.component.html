@@ -1,0 +1,10 @@
+<form>
+    <div class="form-group">
+      <label for="crico">Circonscription</label>
+      <app-search (select)="onCircoSelect($event)" *ngIf="!candidat.circo"></app-search>
+      <p *ngIf="candidat.circo">
+        {{candidat.circo}}
+      </p>
+    </div>
+    <button type="submit" class="button">Submit</button>
+</form>

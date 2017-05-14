@@ -1,5 +1,5 @@
 import { CircoService } from './../circo.service';
-import { CandidatService } from './../../candidat/candidat.service';
+import { CandidatService } from '../candidat.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 

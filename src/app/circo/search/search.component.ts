@@ -1,5 +1,5 @@
 import { CircoService } from '../circo.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { accentFold } from '../../shared/accent-folding';
 
 @Component({
@@ -15,6 +15,8 @@ export class SearchComponent implements OnInit {
     search: ''
   };
 
+  @Output() select = new EventEmitter<string>();
+
   constructor(private circoService: CircoService) {}
 
   ngOnInit() {
@@ -25,5 +27,9 @@ export class SearchComponent implements OnInit {
     this.filteredCircos = this.circos.filter(circos => {
       return accentFold(circos.gsx$nom.$t).toUpperCase().includes(accentFold(this.model.search).toUpperCase());
     });
+  }
+
+  onClick($event, circoId) {
+    this.select.emit(circoId);
   }
 }

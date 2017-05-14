@@ -1,5 +1,4 @@
 import { RouterModule } from '@angular/router';
-import { CandidatModule } from './candidat/candidat.module';
 import { CircoModule } from './circo/circo.module';
 import { AppRoutingModule } from './app-routing.module';
 import { CoreModule } from './core/core.module';
@@ -22,7 +21,6 @@ import { AppComponent } from './app.component';
     CoreModule,
     AppRoutingModule,
     CircoModule.forRoot(),
-    CandidatModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

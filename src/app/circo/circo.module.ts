@@ -1,4 +1,4 @@
-import { CandidatModule } from './../candidat/candidat.module';
+import { CandidatService } from './candidat.service';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
@@ -7,6 +7,9 @@ import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SearchComponent } from './search/search.component';
 import { ShowComponent } from './show/show.component';
+import { CandidatCardComponent } from './candidat-card/candidat-card.component';
+import { CandidatSubscribeFormComponent } from './candidat-subscribe-form/candidat-subscribe-form.component';
+import { CandidatSubscribeComponent } from './candidat-subscribe/candidat-subscribe.component';
 
 @NgModule({
   imports: [
@@ -14,14 +17,17 @@ import { ShowComponent } from './show/show.component';
     HttpModule,
     FormsModule,
     RouterModule,
-    CandidatModule,
   ],
   declarations: [
     SearchComponent,
-    ShowComponent
+    ShowComponent,
+    CandidatCardComponent,
+    CandidatSubscribeFormComponent,
+    CandidatSubscribeComponent
   ],
   exports: [
     SearchComponent,
+    CandidatSubscribeFormComponent
   ]
 })
 export class CircoModule {
@@ -30,7 +36,8 @@ export class CircoModule {
     return {
       ngModule: CircoModule,
       providers: [
-        CircoService
+        CircoService,
+        CandidatService,
       ]
     };
   }
