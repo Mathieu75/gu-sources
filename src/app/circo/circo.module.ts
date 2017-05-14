@@ -1,3 +1,4 @@
+import { CandidatModule } from './../candidat/candidat.module';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
@@ -12,7 +13,8 @@ import { ShowComponent } from './show/show.component';
     CommonModule,
     HttpModule,
     FormsModule,
-    RouterModule
+    RouterModule,
+    CandidatModule,
   ],
   declarations: [
     SearchComponent,

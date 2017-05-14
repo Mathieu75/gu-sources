@@ -1,8 +1,8 @@
 <div>
-  <div *ngFor="let candidat of candidats.data">
-    {{candidat.gsx$nom.$t}}
-  </div>
-  <div *ngIf="candidats.retrieved && candidats.data.length < 1">
-    NOK
-  </div>
+  <h2>Circonscription {{circoId}}</h2>
+  <h3>Candidats de gauche</h3>
+  <app-candidat-card *ngFor="let candidat of candidats.data" [candidat]="candidat">
+  </app-candidat-card>
+  <app-candidat-card *ngIf="candidats.retrieved && candidats.data.length < 1" [empty]="true">
+  </app-candidat-card>
 </div>

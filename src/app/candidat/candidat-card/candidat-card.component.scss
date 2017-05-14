@@ -1,0 +1,38 @@
+.wrapper {
+    background-color: rgba(213, 19, 23, 1);
+    position: relative;
+    min-height: 200px;
+    padding: 1em 1em 1em calc(100px + 3em) ;
+    color: #fff;
+}
+
+h3 {
+    text-align: center;
+    text-align: center;
+}
+
+.picture {
+    position: absolute;
+    left: 1em;
+    top: 1em;
+    width: 100px;
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+
+    .button {
+        background-color: rgba(126,183,18,1);
+        color: #fff;
+        padding: 0.5em 1em;
+    }
+
+    .button:hover {
+        background-color: rgba(126,183,18,.88);
+    }
+}
+
+.portrait, .parti {
+    width: 100%;
+}

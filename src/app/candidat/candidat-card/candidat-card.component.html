@@ -1,0 +1,17 @@
+<div class="card wrapper">
+  <div class="picture">
+    <img class="portrait" [src]="candidat.picture || '/assets/unknown.jpg'" />
+    <img *ngIf="!empty && candidat.groupeImage" class="parti" [src]="candidat.groupeImage" />
+  </div>
+  <div class="content">
+    <h3 *ngIf="!empty">{{candidat.prenom}} {{candidat.nom}}</h3>
+    <h3 *ngIf="empty">Aucun candidat n'est pour l'instant enregistré pour cette circonscription.</h3>
+    <ul class="no-list">
+      <a [href]="lien.url" *ngFor="let lien of candidat.liens">
+        <li class="button">
+          {{lien.texte}}
+        </li>
+      </a>
+    </ul>
+  </div>
+</div>

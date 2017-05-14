@@ -1,3 +1,4 @@
+import { CircoService } from './../circo.service';
 import { CandidatService } from './../../candidat/candidat.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
@@ -15,7 +16,7 @@ export class ShowComponent implements OnInit {
     data: []
   };
 
-  constructor(private candidatService: CandidatService, private route: ActivatedRoute) { }
+  constructor(private candidatService: CandidatService, private circoService: CircoService, private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
