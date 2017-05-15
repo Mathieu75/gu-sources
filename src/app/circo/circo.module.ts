@@ -1,3 +1,5 @@
+import { SharedModule } from './../shared/shared.module';
+import { CloudinaryModule } from '@cloudinary/angular';
 import { CandidatService } from './candidat.service';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
@@ -16,9 +18,11 @@ import { CandidatsListComponent } from './candidats-list/candidats-list.componen
 @NgModule({
   imports: [
     CommonModule,
+    SharedModule,
     HttpModule,
     FormsModule,
     RouterModule,
+    CloudinaryModule,
   ],
   declarations: [
     CircoSearchComponent,

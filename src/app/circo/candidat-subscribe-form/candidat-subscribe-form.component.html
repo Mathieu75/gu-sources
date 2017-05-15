@@ -1,19 +1,57 @@
-<form>
+<form #submitForm="ngForm" (ngSubmit)="onSubmit()">
+
+  <div class="comment">
+    <p>
+      Tout d'abord, merci de sélectionner la "fiche" correspondant à votre candidature. Dans le cas où celle-ci ne soit pas encore
+      disponible, vous pourrez la créer en cliquant sur le bouton "+".
+    </p>
+
+    <p>
+      Le champs "circonscription" est uniquement destiné à simplifier votre recherche, et sera automatiquement corrigé à la sélection
+      de votre "fiche"
+    </p>
+  </div>
+
   <div class="form-group">
     <label for="circo">Votre circonscription</label>
     <app-circo-search (select)="onCircoSelect($event)" *ngIf="!candidat.circo"></app-circo-search>
     <div *ngIf="candidat.circo" class="deletable-input">
-      <input type="text" name="circo" readonly="readonly" [ngModel]="candidat.circo" required /><span class="delete icon"
-        (click)="candidat.circo = ''"></span>
+      <input type="text" class="form-control" name="circo" readonly="readonly" [ngModel]="candidat.circo" required />
+      <span class="delete icon" (click)="candidat.circo = ''"></span>
     </div>
   </div>
   <div class="form-group">
     <label for="candidat">Vous êtes ...</label>
     <app-candidat-search [circoId]="candidat.circo" (select)="onCandidatSelect($event)" *ngIf="!candidat.candidat"></app-candidat-search>
     <div *ngIf="candidat.candidat" class="deletable-input">
-      <input type="text" name="candidat" readonly="readonly" [ngModel]="candidat.candidat.gsx$id.$t" required /><span class="delete icon"
-        (click)="candidat.candidat = ''"></span>
+      <input type="text" class="form-control" name="candidat" readonly="readonly" [ngModel]="candidat.candidat.gsx$id.$t" required
+      /><span class="delete icon" (click)="candidat.candidat = ''"></span>
     </div>
   </div>
-  <button type="submit" class="button">Submit</button>
+  <p class="comment">Les informations de contact suivantes nous permettront de vérifier votre identité.</p>
+  <div class="form-group">
+    <label for="telComite">Numéro de téléphone de votre comité de campagne</label>
+    <input type="tel" class="form-control" name="telComite" [(ngModel)]="candidat.telComite" required="true" minlength="10" maxlength="10"
+      pattern="0[1-9][0-9]*" />
+  </div>
+  <div class="form-group">
+    <label for="tel">Numéro de téléphone (ligne directe)</label>
+    <input type="tel" class="form-control" name="tel" [(ngModel)]="candidat.telDirect" required="true" minlength="10" maxlength="10"
+      pattern="0[1-9][0-9]*" />
+  </div>
+  <div class="form-group">
+    <label for="mail">Adresse Email</label>
+    <input type="text" class="form-control" name="mail" [(ngModel)]="candidat.mail" required="true" minlength="5" pattern="^[a-z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)*$"
+    />
+  </div>
+
+  <p class="comment">
+    Afin d'attester de votre engagement, ainsi que de votre identité, nous vous demandons d'écrire, de manière manuscrite, la
+    mention "Je m'engage pour la gauche unie" suivie, en dessous à droite, de votre signature, et de la prendre en photo,
+    ou de la scanner (au format image), puis de nous la communiquer via l'outil ci-dessous.
+  </p>
+
+  <app-photo-upload></app-photo-upload>
+
+  <button type="submit" class="button">Envoyer</button>
 </form>

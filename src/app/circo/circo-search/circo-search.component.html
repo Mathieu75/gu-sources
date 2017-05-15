@@ -1,5 +1,5 @@
-<div>
-  <input type="text" class="search" [(ngModel)]="model.search" (ngModelChange)="onSearchChange($event)" placeholder="Rechercher votre circonscription. Exemple: Paris, 11ème"
+<div class="wrapper">
+  <input type="text" class="search" [(ngModel)]="model.search" (ngModelChange)="onSearchChange($event)" placeholder="Rechercher votre circonscription (exemple: Paris, 11ème)"
   />
   <ul class="rslt no-list" *ngIf="model.search">
     <li class="button" *ngFor="let circo of filteredCircos" (click)="onClick($event, circo.gsx$codecirconscription.$t)">

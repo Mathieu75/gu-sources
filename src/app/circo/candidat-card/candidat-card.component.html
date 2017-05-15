@@ -5,7 +5,7 @@
   </div>
   <div class="content">
     <h3 *ngIf="!empty">{{candidat.prenom}} {{candidat.nom}}</h3>
-    <h3 *ngIf="empty">Aucun candidat n'est pour l'instant enregistré pour cette circonscription.</h3>
+    <h3 *ngIf="empty">Aucun candidat correspondant à votre recherche n'est enregistré pour l'instant sur ce site.</h3>
     <ul class="no-list">
       <a [href]="lien.url" *ngFor="let lien of candidat.liens">
         <li class="button">

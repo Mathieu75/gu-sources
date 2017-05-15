@@ -26,4 +26,8 @@ export class CandidatSubscribeFormComponent implements OnInit {
     this.candidat.circo = candidat.gsx$circo.$t;
   }
 
+  onSubmit() {
+    // TODO
+  }
+
 }
