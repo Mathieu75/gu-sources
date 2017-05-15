@@ -2,6 +2,135 @@
 
 @import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:700');
 
+
+/* COLOR */
+$field-valid: #7eb712;
+$field-invalid: #d51317;
+
+$button-bg-hover: #5e9702;
+$button-bg: #7eb712;
+$button-text: #fff;
+
+$circo-rslt-bg-hover: #7eb712;
+$circo-rslt-bg: #a9d067;
+$circo-rslt-text: #fff;
+
+$card-bg:#d51317;
+$card-text:#fff;
+
+$candidat-card-bg:#d51317;
+$candidat-card-text:#fff;
+
+$article-note-text: #d51317;
+$article-border-b: #d51317;
+
+$header-bg: #d51317;
+$header-text: #fff;
+$header-a-bg-hover: rgba(255,255,255,.12);
+
+$input-border:#ccc;
+$input-bg:rgba(0,0,0,0.12);
+
+header {
+    box-shadow: 0 1px 20px -1px $header-bg;
+    background-color: $header-bg;
+    color: $header-text;
+
+    .burger {
+        fill: $header-text;
+    }
+
+    a{
+        color: $header-text;
+        &:hover:not(.button) {
+            background-color: $header-a-bg-hover;
+        }
+    }
+}
+
+
+.circo{
+    .rslt {
+
+        li {
+            background-color: $circo-rslt-bg;
+        }
+
+        li:hover {
+            background-color: $circo-rslt-bg-hover
+        }
+
+        a {
+            color: $circo-rslt-text;
+        }
+    }
+}
+
+.card {
+    background-color: $card-bg;
+    color: $card-text;
+    
+    &.wrapper {
+        background-color: $candidat-card-bg;
+        color: $candidat-card-text;
+    }
+}
+
+.article{
+    .note {
+        color: $article-note-text;
+    }
+
+    h2 {
+        border-bottom: 2px solid $article-border-b;
+    }
+
+    h3 {
+        border-bottom: 1px solid $article-border-b;
+    }
+}
+
+
+.button {
+    color: $button-text;
+    background-color: $button-bg;
+
+    &:hover {
+        background-color:$button-bg-hover;
+    }
+}
+
+.ng-valid[required], .ng-valid.required  {
+  border-left: 5px solid $field-valid;
+}
+
+.ng-invalid:not(form)  {
+  border-left: 5px solid $field-invalid;
+}
+
+input[type="text"] {
+    border: 2px solid $input-border;
+}
+
+input[readonly] {
+    background-color: $input-bg;
+
+    .icon {
+        background-color: $input-bg;
+    }
+}
+
+.button {
+    text-align: center;
+    font-weight: bold;
+    cursor:pointer;
+    margin: 0.5em 0;
+    padding: 1em 1em;
+    border-radius: 4px;
+    box-shadow: 0 3px 3px 0 rgba(0,0,0,0.14), 0 1px 7px 0 rgba(0,0,0,0.12), 0 3px 1px -1px rgba(0,0,0,0.2);
+    text-decoration: none;
+ }
+
 .card {
     border-radius: 5px;
     text-align: justify;
@@ -9,20 +138,6 @@
     margin: 1em auto;
 }
 
-.button {
-    text-align: center;
-    margin: 0.5em 0;
-    padding: 1em 1em;
-    border-radius: 4px;
-    box-shadow: 0 3px 3px 0 rgba(0,0,0,0.14), 0 1px 7px 0 rgba(0,0,0,0.12), 0 3px 1px -1px rgba(0,0,0,0.2);
-    text-decoration: none;
-    color: #fff;
-    background-color: rgba(126, 183, 18, 0.88);
-
-    &:hover {
-        background-color: rgba(126, 183, 18, 1);
-    }
-}
 
 .no-list {
     list-style: none;
@@ -34,7 +149,6 @@
     h2 {
         margin-bottom: 3em;
         margin-top: 3em;
-        border-bottom: 2px solid #d51317;
     }
 
     h3 {
@@ -42,7 +156,6 @@
         margin-left: 0em;
         padding-right: 5em;
         margin-bottom: 1em;
-        border-bottom: 1px solid #d51317;
         display: inline-block;
     }
 
@@ -54,17 +167,10 @@
 button {
     border: 0;
     background: none;
-    box-shadow:none;
+    box-shadow: none;
     border-radius: 0px;
 }
 
-.ng-valid[required], .ng-valid.required  {
-  border-left: 5px solid rgba(126, 183, 18, 1);
-}
-
-.ng-invalid:not(form)  {
-  border-left: 5px solid rgba(213, 19, 23, 1); /* red */
-}
 
 input.search {
     background-image: url("/assets/search-icon.png");
@@ -73,19 +179,10 @@ input.search {
 }
 
 input[type="text"] {
-    border: 2px solid #ccc;
     border-radius: 4px;
     font-size: 16px;
     display: block;
     padding: 12px 20px 12px 40px;
-}
-
-input[readonly] {
-    background-color: rgba(0,0,0,0.12);
-
-    .icon {
-        background-color: rgba(0,0,0,0.12);
-    }
 }
 
 .deletable-input {

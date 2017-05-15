@@ -1,9 +1,7 @@
 .wrapper {
-    background-color: rgba(213, 19, 23, 1);
     position: relative;
     min-height: 200px;
     padding: 1em 1em 1em calc(100px + 3em) ;
-    color: #fff;
 }
 
 h3 {
@@ -24,13 +22,7 @@ a {
 
     .button {
         text-align: left;
-        background-color: rgba(126,183,18,1);
-        color: #fff;
         padding: 0.5em 1em;
-    }
-
-    .button:hover {
-        background-color: rgba(126,183,18,.88);
     }
 }
 

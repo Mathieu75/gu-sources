@@ -1,10 +1,8 @@
+
 header {
     font-family: 'Roboto Condensed', sans-serif;
     padding: 0.5em;
-    box-shadow: 0 1px 20px -1px #d51317;
     font-size: 12px;
-    background-color: #d51317;
-    color: #fff;
 }
 
 .menu {
@@ -14,33 +12,22 @@ header {
 .burger {
     width: 50px;
     display: none;
-    fill: #fff;
 }
 
 .button {
     position: absolute;
     right: 20px;
     border-radius: 2px;
-    background-color: #7eb712;
     box-shadow: 0 3px 3px 0 rgba(0,0,0,0.14), 0 1px 7px 0 rgba(0,0,0,0.12), 0 3px 1px -1px rgba(0,0,0,0.2)
 }
 
 a {
-    color: #fff;
     text-align: center;
     margin: 0px 20px;
     display: inline-block;
     text-decoration: none;
     font-size: large;
     padding : 0.5em 1em;
-
-    &:hover:not(.button) {
-        background-color: rgba(255,255,255,.12);
-    }
-
-    &.button:hover {
-        background-color: rgba(126,183,18,.88);
-    }
 }
 
 .title {
@@ -66,10 +53,6 @@ a {
 
         a {
             display: block;
-        }
-
-        a:not(.button) {
-            background-color: rgba(255,255,255,.12);
         }
 
         .button {
