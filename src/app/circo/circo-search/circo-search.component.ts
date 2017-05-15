@@ -3,11 +3,11 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { accentFold } from '../../shared/accent-folding';
 
 @Component({
-  selector: 'app-search',
-  templateUrl: './search.component.html',
-  styleUrls: ['./search.component.scss']
+  selector: 'app-circo-search',
+  templateUrl: './circo-search.component.html',
+  styleUrls: ['./circo-search.component.scss']
 })
-export class SearchComponent implements OnInit {
+export class CircoSearchComponent implements OnInit {
 
   private circos: any;
   filteredCircos: any;

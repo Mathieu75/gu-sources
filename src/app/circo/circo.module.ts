@@ -5,11 +5,13 @@ import { HttpModule } from '@angular/http';
 import { CircoService } from './circo.service';
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SearchComponent } from './search/search.component';
-import { ShowComponent } from './show/show.component';
+import { CircoSearchComponent } from './circo-search/circo-search.component';
+import { CandidatsShowComponent } from './candidats-show/candidats-show.component';
 import { CandidatCardComponent } from './candidat-card/candidat-card.component';
 import { CandidatSubscribeFormComponent } from './candidat-subscribe-form/candidat-subscribe-form.component';
 import { CandidatSubscribeComponent } from './candidat-subscribe/candidat-subscribe.component';
+import { CandidatSearchComponent } from './candidat-search/candidat-search.component';
+import { CandidatsListComponent } from './candidats-list/candidats-list.component';
 
 @NgModule({
   imports: [
@@ -19,14 +21,16 @@ import { CandidatSubscribeComponent } from './candidat-subscribe/candidat-subscr
     RouterModule,
   ],
   declarations: [
-    SearchComponent,
-    ShowComponent,
+    CircoSearchComponent,
+    CandidatsShowComponent,
     CandidatCardComponent,
     CandidatSubscribeFormComponent,
-    CandidatSubscribeComponent
+    CandidatSubscribeComponent,
+    CandidatSearchComponent,
+    CandidatsListComponent
   ],
   exports: [
-    SearchComponent,
+    CircoSearchComponent,
     CandidatSubscribeFormComponent
   ]
 })
