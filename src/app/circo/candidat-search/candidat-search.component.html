@@ -1,0 +1,5 @@
+<div>
+  <input type="text" class="search" [(ngModel)]="model.search" (ngModelChange)="onSearchChange($event)" placeholder="Entrez le nom de famille d'un candidat ...'"
+  />
+  <app-candidats-list *ngIf="model.search" [candidats]="filteredCandidats" (select)="onSelect($event)"></app-candidats-list>
+</div>

@@ -49,3 +49,69 @@
         text-align: justify;
     }
 }
+
+button {
+    border: 0;
+    background: none;
+    box-shadow:none;
+    border-radius: 0px;
+}
+
+.ng-valid[required], .ng-valid.required  {
+  border-left: 5px solid rgba(126, 183, 18, 1);
+}
+
+.ng-invalid:not(form)  {
+  border-left: 5px solid rgba(213, 19, 23, 1); /* red */
+}
+
+input.search {
+    background-image: url("/assets/search-icon.png");
+    background-position: 10px 12px;
+    background-repeat: no-repeat;
+}
+
+input[type="text"] {
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    display: block;
+    padding: 12px 20px 12px 40px;
+}
+
+input[readonly] {
+    background-color: rgba(0,0,0,0.12);
+
+    .icon {
+        background-color: rgba(0,0,0,0.12);
+    }
+}
+
+.deletable-input {
+
+    position: relative;
+
+    input[type="text"] {
+        padding-right: 16px;
+        display: block;
+        width: calc(100% - 60px);
+        height: 100%;
+    }
+
+    .delete {
+        position: absolute;
+        display: block;
+        top: 12px;
+        right: 10px;
+        width: 24px;
+        height: 24px;
+        line-height: 24px;
+        cursor: pointer;
+        background: url('/assets/icons/cancel_black.svg') no-repeat right top;
+    }
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+

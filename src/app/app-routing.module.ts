@@ -1,6 +1,6 @@
 import { CandidatSubscribeComponent } from './circo/candidat-subscribe/candidat-subscribe.component';
 import { MilitHomeComponent } from './core/milit-home/milit-home.component';
-import { ShowComponent } from './circo/show/show.component';
+import { CandidatsShowComponent } from './circo/candidats-show/candidats-show.component';
 import { HomeComponent } from './core/home/home.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -17,7 +17,7 @@ const routes: Routes = [
   },
   {
     path: 'circo/:id',
-    component: ShowComponent
+    component: CandidatsShowComponent
   },
   {
     path: 'articles',

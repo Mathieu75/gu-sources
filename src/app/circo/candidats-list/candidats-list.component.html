@@ -1,0 +1,6 @@
+<div>
+  <app-candidat-card *ngFor="let candidat of candidats" [candidat]="candidat" (click)="onSelect(candidat)">
+  </app-candidat-card>
+  <app-candidat-card *ngIf="candidats.length < 1" [empty]="true">
+  </app-candidat-card>
+</div>

@@ -1,0 +1,21 @@
+.rslt {
+    text-align: center;
+    font-weight: bold;
+
+    li {
+        background-color: rgba(126,183,18,.64);
+    }
+
+    li:hover {
+        background-color: rgba(126,183,18,.88);
+    }
+
+    a {
+        text-decoration: none;
+        color: #fff;
+    }
+}
+
+input[type="text"] {
+    width: calc(100% - 60px);
+}

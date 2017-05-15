@@ -4,29 +4,21 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-show',
-  templateUrl: './show.component.html',
-  styleUrls: ['./show.component.scss']
+  selector: 'app-candidats-show',
+  templateUrl: './candidats-show.component.html',
+  styleUrls: ['./candidats-show.component.scss']
 })
-export class ShowComponent implements OnInit {
+export class CandidatsShowComponent implements OnInit {
 
   private circoId: string;
-  candidats = {
-    retrieved: false,
-    data: []
-  };
+  candidats: Promise<any[]>;
 
   constructor(private candidatService: CandidatService, private circoService: CircoService, private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.circoId = params['id'];
-      this.candidatService.getByCirco(this.circoId).then(data => {
-        this.candidats = {
-          retrieved: true,
-          data
-        };
-      });
+      this.candidats = this.candidatService.getByCirco(this.circoId);
     });
   }
 
