@@ -17,6 +17,7 @@ form, .drag-comment  {
 .direct_upload_jquery, .direct_upload {
     padding: 20px 20px; margin: 20px 0;
     border-top: 1px solid #ccc; border-bottom: 1px solid #ccc;
+    text-align: center;
 }
 
 .direct_upload_jquery h1, .direct_upload h1 {
@@ -97,12 +98,47 @@ form, .drag-comment  {
 }
 
 .preview img, .preview audio, .preview video {
-    max-width: 300px;
-    max-height: 150px;
+    max-width: 100px;
+    max-height: 100px;
 }
+
+.file {
+    position: relative;
+
+    .delete.icon {
+        position: absolute;
+        top: 1em;
+        right: 1em;
+    }
+}
+
+
 
 @media only screen and (max-width : 1024px) {
     .direct_upload {
         text-align: center;
+    }
+}
+
+.status-wrapper {
+    display: table;
+    padding: 1em;
+    min-height: 4em;
+    width: calc(100% - 2em);
+
+    .status {
+        display: table-cell;
+        vertical-align: middle;
+        text-align: left;
+    }
+
+    .thumbnail {
+        display: table-cell;
+        vertical-align: middle;
+        text-align: right;
+        
+        img {
+            max-width: 100px;
+        }
     }
 }

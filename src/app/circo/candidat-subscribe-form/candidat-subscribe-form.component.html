@@ -51,7 +51,7 @@
     ou de la scanner (au format image), puis de nous la communiquer via l'outil ci-dessous.
   </p>
 
-  <app-photo-upload></app-photo-upload>
+  <app-photo-upload once="true" (uploadSuccess)="onEngagementUploadSuccess($event)"></app-photo-upload>
 
   <button type="submit" class="button">Envoyer</button>
 </form>

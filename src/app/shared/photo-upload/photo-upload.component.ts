@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, NgZone } from '@angular/core';
+import { Component, OnInit, Input, NgZone, Output, EventEmitter } from '@angular/core';
 import { Http, Response, RequestOptions, Headers } from '@angular/http';
 import { FileUploader, FileUploaderOptions, ParsedResponseHeaders } from 'ng2-file-upload';
 import 'rxjs/add/operator/toPromise';
@@ -10,19 +10,23 @@ import 'rxjs/add/operator/toPromise';
 })
 export class PhotoUploadComponent implements OnInit {
 
+  @Output()
+  uploadSuccess = new EventEmitter<{ file, status, data }>();
+
   @Input()
-  responses: Array<any>;
+  once: boolean;
+
+  responses: Array<any> = [];
 
   private hasBaseDropZoneOver = false;
   private uploader: FileUploader;
-  private title: string;
+  private title = '';
+  retry: boolean;
 
   constructor(
     private zone: NgZone,
     private http: Http
   ) {
-    this.responses = [];
-    this.title = '';
   }
 
   ngOnInit(): void {
@@ -81,14 +85,22 @@ export class PhotoUploadComponent implements OnInit {
       });
     };
 
-    this.uploader.onCompleteItem = (item: any, response: string, status: number, headers: ParsedResponseHeaders) =>
-      upsertResponse(
+    this.uploader.onCompleteItem = (item: any, response: string, status: number, headers: ParsedResponseHeaders) => {
+      const data = {
+        file: item.file,
+        status,
+        data: JSON.parse(response)
+      };
+      this.retry = false;
+      this.uploadSuccess.emit(data);
+      return upsertResponse(
         {
           file: item.file,
           status,
           data: JSON.parse(response)
         }
       );
+    };
 
     this.uploader.onProgressItem = (fileItem: any, progress: any) =>
       upsertResponse(

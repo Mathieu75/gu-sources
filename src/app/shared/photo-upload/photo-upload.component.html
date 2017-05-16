@@ -1,26 +1,49 @@
 <div class="direct_upload" ng2FileDrop [uploader]="uploader" (fileOver)="fileOverBase($event)" [ngClass]="{'nv-file-over': hasBaseDropZoneOver}">
-	<form>
-		<div class="form_line">
+	<div *ngIf="retry || !once || responses.length < 1">
+		<form>
+			<div class="form_line">
+				<div class="form_controls">
+					<div class="upload_button_holder">
+						<label class="button" for="fileupload">Choisir un fichier</label>
+						<!-- onChange hanlder resets the input value to get the change event when uploading the same file consecutively -->
+						<input type="file" id="fileupload" #fileInput ng2FileSelect [style.display]="'none'" [uploader]="uploader" (change)="fileInput.value=''"
+						 multiple />
+					</div>
+				</div>
+			</div>
+		</form>
+		<p class="drag-comment">
+			ou glissez et déposez un fichier dans cette zone
+		</p>
+		<div class="form_line" *ngIf="uploader.queue.length > 0">
 			<div class="form_controls">
-				<div class="upload_button_holder">
-					<label class="button" for="fileupload">Choisir un fichier</label>
-					<!-- onChange hanlder resets the input value to get the change event when uploading the same file consecutively -->
-					<input type="file" id="fileupload" #fileInput ng2FileSelect [style.display]="'none'" [uploader]="uploader" (change)="fileInput.value=''"
-						multiple />
+				<div class="preview">
+					<h3>Images en cours d'envoit</h3>
+					<div *ngFor="let item of uploader.queue" class="media">
+						<div class="media-left">
+							<img src="" appImgPreview [image]="item?._file" class="media-object" />
+						</div>
+						<div class="media-body">
+							<p>{{ item?.file?.name }}</p>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
-	</form>
-	<p class="drag-comment">
-		ou glissez et déposez un fichier dans cette zone
-	</p>
+	</div>
 	<div class="file" *ngFor="let response of responses; let i = index">
 		<h3>{{response.file.name}}</h3>
-    <button class="delete-image" *ngIf="!!response.data.delete_token" (click)="deleteImage(response.data, i)">Delete image</button>
-		<div class="status">
-			Enregistrement... {{response.progress}}%
-			<div *ngIf="!response.status">In progress</div>
-			<div class="status-code" *ngIf="response.status">Image enregistrée</div>
+		<span *ngIf="once" class="delete icon" (click)="retry = true; responses.splice(i, 1);"></span>
+		<button class="delete-image" *ngIf="!!response.data.delete_token" (click)="deleteImage(response.data, i)">Delete image</button>
+		<div class="status-wrapper">
+			<div class="status">
+				Enregistrement... {{response.progress}}%
+				<div *ngIf="!response.status">In progress</div>
+				<div class="status-code" *ngIf="response.status">Image enregistrée</div>
+			</div>
+			<div class="thumbnail">
+				<img [attr.src]="response.data.url" />
+			</div>
 		</div>
 		<div class="progress-bar">
 			<div class="progress" role="progressbar" [style.width.%]="response.progress"></div>

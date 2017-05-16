@@ -95,6 +95,17 @@ input[readonly] {
     }
 }
 
+.icon {
+    width: 24px;
+    height: 24px;
+    line-height: 24px;
+    cursor: pointer;
+}
+
+.delete.icon {
+    background: url('/assets/icons/cancel_black.svg') no-repeat right top;
+}
+
 .deletable-input {
 
     position: relative;
@@ -111,11 +122,6 @@ input[readonly] {
         display: block;
         top: 12px;
         right: 10px;
-        width: 24px;
-        height: 24px;
-        line-height: 24px;
-        cursor: pointer;
-        background: url('/assets/icons/cancel_black.svg') no-repeat right top;
     }
 }
 

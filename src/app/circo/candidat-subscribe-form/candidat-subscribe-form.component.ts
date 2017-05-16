@@ -30,4 +30,8 @@ export class CandidatSubscribeFormComponent implements OnInit {
     // TODO
   }
 
+  onEngagementUploadSuccess(event: {file, data, status}) {
+    this.candidat.engagement = event.data.url;
+  }
+
 }
