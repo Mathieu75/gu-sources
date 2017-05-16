@@ -13,6 +13,7 @@ import { CandidatSubscribeFormComponent } from './candidat-subscribe-form/candid
 import { CandidatSubscribeComponent } from './candidat-subscribe/candidat-subscribe.component';
 import { CandidatSearchComponent } from './candidat-search/candidat-search.component';
 import { CandidatsListComponent } from './candidats-list/candidats-list.component';
+import { OkViewComponent } from './ok-view/ok-view.component';
 
 @NgModule({
   imports: [
@@ -29,11 +30,13 @@ import { CandidatsListComponent } from './candidats-list/candidats-list.componen
     CandidatSubscribeFormComponent,
     CandidatSubscribeComponent,
     CandidatSearchComponent,
-    CandidatsListComponent
+    CandidatsListComponent,
+    OkViewComponent
   ],
   exports: [
     CircoSearchComponent,
-    CandidatSubscribeFormComponent
+    CandidatSubscribeComponent,
+    OkViewComponent
   ]
 })
 export class CircoModule {

@@ -1,4 +1,4 @@
-<form #submitForm="ngForm" (ngSubmit)="onSubmit()">
+<form #engagementForm="ngForm" (ngSubmit)="onSubmit()">
 
   <div class="comment">
     <p>
@@ -24,25 +24,60 @@
     <label for="candidat">Vous êtes ...</label>
     <app-candidat-search [circoId]="circoId" (select)="onCandidatSelect($event)" *ngIf="!engagement.candidatId"></app-candidat-search>
     <div *ngIf="engagement.candidatId" class="deletable-input">
-      <input type="text" class="form-control" name="candidat" readonly="readonly" [ngModel]="engagement.candidatId" required
-      /><span class="delete icon" (click)="engagement.candidatId = ''"></span>
+      <input type="text" class="form-control" #candidat="ngModel" name="candidat" readonly="readonly" [ngModel]="engagement.candidatId"
+        required />
+      <span class="delete icon" (click)="engagement.candidatId = ''"></span>
+    </div>
+    <div *ngIf="showComponentsErrors && !engagement.candidatId" class="input-alert">
+      Vous devez sélectionner votre "fiche candidat" afin d'y associer votre engagement.
     </div>
   </div>
   <p class="comment">Les informations de contact suivantes nous permettront de vérifier votre identité.</p>
   <div class="form-group">
     <label for="telComite">Numéro de téléphone de votre comité de campagne</label>
-    <input type="tel" class="form-control" name="telComite" [(ngModel)]="engagement.telComite" required="true" minlength="10" maxlength="10"
-      pattern="0[1-9][0-9]*" />
+    <input type="tel" (blur)="onInputBlur()" class="form-control" #telComite="ngModel" name="telComite" [(ngModel)]="engagement.telComite"
+      required="true" minlength="10" maxlength="10" pattern="0[1-9][0-9]*" />
+    <div *ngIf="telComite.errors && (telComite.dirty || telComite.touched)" class="input-alert">
+      <div [hidden]="!telComite.errors.required">
+        Vous devez renseigner le numéro de téléphone de votre comité de campagne.
+      </div>
+      <div [hidden]="!telComite.errors.minlength || !telComite.errors.maxlength">
+        Le numéro de téléphone doit comprendre 10 caractères.
+      </div>
+      <div [hidden]="!telComite.errors.pattern">
+        Le numéro de téléphone doit commencer par un 0, suivit d'un chiffre de 1 à 9, puis de 8 chiffres de 0 à 9.
+      </div>
+    </div>
   </div>
   <div class="form-group">
     <label for="tel">Numéro de téléphone (ligne directe)</label>
-    <input type="tel" class="form-control" name="tel" [(ngModel)]="engagement.telDirect" required="true" minlength="10" maxlength="10"
-      pattern="0[1-9][0-9]*" />
+    <input type="tel" (blur)="onInputBlur()" class="form-control" #telDirect="ngModel" name="tel" [(ngModel)]="engagement.telDirect"
+      required="true" minlength="10" maxlength="10" pattern="0[1-9][0-9]*" />
+    <div *ngIf="telDirect.errors && (telDirect.dirty || telDirect.touched)" class="input-alert">
+      <div [hidden]="!telDirect.errors.required">
+        Nous avons besoin du numéro de téléphone de votre ligne directe afin de vérifier votre identité.
+      </div>
+      <div [hidden]="!telDirect.errors.minlength || !telDirect.errors.maxlength">
+        Le numéro de téléphone doit comprendre 10 caractères.
+      </div>
+      <div [hidden]="!telDirect.errors.pattern">
+        Le numéro de téléphone doit commencer par un 0, suivit d'un chiffre de 1 à 9, puis de 8 chiffres de 0 à 9.
+      </div>
+    </div>
   </div>
   <div class="form-group">
     <label for="mail">Adresse Email</label>
-    <input type="text" class="form-control" name="mail" [(ngModel)]="engagement.mail" required="true" minlength="5" pattern="^[a-z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)*$"
+    <input type="text" (blur)="onInputBlur()" class="form-control" name="mail" #mail="ngModel" [(ngModel)]="engagement.mail"
+      required="true" minlength="5" pattern="^[a-z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)*$"
     />
+    <div *ngIf="mail.errors && (mail.dirty || mail.touched)" class="input-alert">
+      <div [hidden]="!mail.errors.required">
+        Nous avons besoin de votre adresse email afin de vous contacter.
+      </div>
+      <div [hidden]="!mail.errors.pattern">
+        Vous devez entrer une adresse email valide - exemple : candidat@degauche.fr
+      </div>
+    </div>
   </div>
 
   <p class="comment">
@@ -53,5 +88,9 @@
 
   <app-photo-upload once="true" (uploadSuccess)="onEngagementUploadSuccess($event)"></app-photo-upload>
 
-  <button type="submit" class="button">Envoyer</button>
+  <div *ngIf="showComponentsErrors && !engagement.img" class="input-alert">
+    Il est impératif que vous nous communiquiez ce fichier afin de valider votre engagement.
+  </div>
+
+  <button type="submit" class="button" [disabled]="!engagementForm.valid">Envoyer</button>
 </form>

@@ -1,6 +1,8 @@
+import { Router } from '@angular/router';
 import { CandidatService } from './../candidat.service';
 import { Http } from '@angular/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-candidat-subscribe-form',
@@ -13,7 +15,9 @@ export class CandidatSubscribeFormComponent implements OnInit {
   candidat: any = {};
   circoId: number;
 
-  constructor(private candidatServ: CandidatService) { }
+  showComponentsErrors = false;
+
+  constructor(private candidatServ: CandidatService, private router: Router) { }
 
   ngOnInit() {
   }
@@ -32,11 +36,17 @@ export class CandidatSubscribeFormComponent implements OnInit {
   }
 
   onSubmit() {
-    this.candidatServ.addEngagement(this.engagement);
+    this.candidatServ.addEngagement(this.engagement).then(() => {
+      this.router.navigateByUrl('/milit/ok');
+    });
   }
 
   onEngagementUploadSuccess(event: {file, data, status}) {
     this.engagement.img = event.data.url;
+  }
+
+  onInputBlur() {
+    this.showComponentsErrors = true;
   }
 
 }

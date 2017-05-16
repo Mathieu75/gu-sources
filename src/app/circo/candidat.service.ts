@@ -23,7 +23,14 @@ export class CandidatService extends SheetAbstractService {
     const headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' });
     const options = new RequestOptions({ headers });
     const toSend = Object.keys(engagement).reduce((acc, key) => `${acc}&${key}=${engagement[key]}`, '').substr(1);
-    return this.http.post(this.scriptUrls.engagement, toSend, options).toPromise();
+    return this.http.post(this.scriptUrls.engagement, toSend, options).toPromise()
+      .then((res) => {
+        const rslt = res.json();
+        if (rslt.result !== 'success') {
+          throw new Error(rslt.error || 'an error occured');
+        };
+        return rslt;
+      });
   }
 
 }

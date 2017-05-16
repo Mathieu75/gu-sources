@@ -21,6 +21,10 @@
     &:hover {
         background-color: rgba(126, 183, 18, 1);
     }
+
+    &[disabled] {
+        background-color: rgba(0, 0, 0, .25);
+    }
 }
 
 .no-list {
@@ -127,5 +131,13 @@ input[readonly] {
 
 .form-group {
     margin-bottom: 15px;
+}
+
+.input-alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    color: #d51317;
 }
 
