@@ -6,15 +6,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { CloudinaryModule } from '@cloudinary/angular';
-import { Cloudinary } from 'cloudinary-core/cloudinary-core-shrinkwrap';
 import { FileUploadModule } from 'ng2-file-upload';
 
 import { AppComponent } from './app.component';
-
-const cloudinaryLib = {
-  Cloudinary
-};
 
 @NgModule({
   declarations: [
@@ -24,15 +18,11 @@ const cloudinaryLib = {
     BrowserModule,
     HttpModule,
     FileUploadModule,
-    CloudinaryModule.forRoot(cloudinaryLib, {
-      cloud_name: 'gaucheunie'
-    }),
     RouterModule,
     FormsModule,
     CoreModule,
     AppRoutingModule,
-    CircoModule.forRoot(),
-    CloudinaryModule
+    CircoModule.forRoot()
   ],
   bootstrap: [AppComponent]
 })
