@@ -14,34 +14,34 @@
 
   <div class="form-group">
     <label for="circo">Votre circonscription</label>
-    <app-circo-search (select)="onCircoSelect($event)" *ngIf="!candidat.circo"></app-circo-search>
-    <div *ngIf="candidat.circo" class="deletable-input">
-      <input type="text" class="form-control" name="circo" readonly="readonly" [ngModel]="candidat.circo" required />
-      <span class="delete icon" (click)="candidat.circo = ''"></span>
+    <app-circo-search (select)="onCircoSelect($event)" *ngIf="!circoId"></app-circo-search>
+    <div *ngIf="circoId" class="deletable-input">
+      <input type="text" class="form-control" name="circo" readonly="readonly" [ngModel]="circoId" required />
+      <span class="delete icon" (click)="circoId = ''"></span>
     </div>
   </div>
   <div class="form-group">
     <label for="candidat">Vous êtes ...</label>
-    <app-candidat-search [circoId]="candidat.circo" (select)="onCandidatSelect($event)" *ngIf="!candidat.candidat"></app-candidat-search>
-    <div *ngIf="candidat.candidat" class="deletable-input">
-      <input type="text" class="form-control" name="candidat" readonly="readonly" [ngModel]="candidat.candidat.gsx$id.$t" required
-      /><span class="delete icon" (click)="candidat.candidat = ''"></span>
+    <app-candidat-search [circoId]="circoId" (select)="onCandidatSelect($event)" *ngIf="!engagement.candidatId"></app-candidat-search>
+    <div *ngIf="engagement.candidatId" class="deletable-input">
+      <input type="text" class="form-control" name="candidat" readonly="readonly" [ngModel]="engagement.candidatId" required
+      /><span class="delete icon" (click)="engagement.candidatId = ''"></span>
     </div>
   </div>
   <p class="comment">Les informations de contact suivantes nous permettront de vérifier votre identité.</p>
   <div class="form-group">
     <label for="telComite">Numéro de téléphone de votre comité de campagne</label>
-    <input type="tel" class="form-control" name="telComite" [(ngModel)]="candidat.telComite" required="true" minlength="10" maxlength="10"
+    <input type="tel" class="form-control" name="telComite" [(ngModel)]="engagement.telComite" required="true" minlength="10" maxlength="10"
       pattern="0[1-9][0-9]*" />
   </div>
   <div class="form-group">
     <label for="tel">Numéro de téléphone (ligne directe)</label>
-    <input type="tel" class="form-control" name="tel" [(ngModel)]="candidat.telDirect" required="true" minlength="10" maxlength="10"
+    <input type="tel" class="form-control" name="tel" [(ngModel)]="engagement.telDirect" required="true" minlength="10" maxlength="10"
       pattern="0[1-9][0-9]*" />
   </div>
   <div class="form-group">
     <label for="mail">Adresse Email</label>
-    <input type="text" class="form-control" name="mail" [(ngModel)]="candidat.mail" required="true" minlength="5" pattern="^[a-z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)*$"
+    <input type="text" class="form-control" name="mail" [(ngModel)]="engagement.mail" required="true" minlength="5" pattern="^[a-z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)*$"
     />
   </div>
 

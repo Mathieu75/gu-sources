@@ -1,3 +1,5 @@
+import { CandidatService } from './../candidat.service';
+import { Http } from '@angular/http';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,31 +9,34 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CandidatSubscribeFormComponent implements OnInit {
 
+  engagement: any = {};
   candidat: any = {};
+  circoId: number;
 
-  constructor() { }
+  constructor(private candidatServ: CandidatService) { }
 
   ngOnInit() {
   }
 
-  onCircoSelect(circoId) {
-    this.candidat.circo = circoId;
-    if (this.candidat.candidat && this.candidat.candidat.gsx$circo.$t !== this.candidat.circo) {
-      this.candidat.candidat = null;
+  onCircoSelect(circoId: number) {
+    this.circoId = circoId;
+    if (this.candidat.gsx$circo && this.candidat.gsx$circo.$t !== this.circoId) {
+      this.engagement.candidat = null;
     }
   }
 
   onCandidatSelect(candidat) {
-    this.candidat.candidat = candidat;
-    this.candidat.circo = candidat.gsx$circo.$t;
+    this.candidat = candidat;
+    this.engagement.candidatId = candidat.gsx$id.$t;
+    this.circoId = candidat.gsx$circo.$t;
   }
 
   onSubmit() {
-    // TODO
+    this.candidatServ.addEngagement(this.engagement);
   }
 
   onEngagementUploadSuccess(event: {file, data, status}) {
-    this.candidat.engagement = event.data.url;
+    this.engagement.img = event.data.url;
   }
 
 }

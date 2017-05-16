@@ -3,7 +3,7 @@ export abstract class SheetAbstractService {
 
     private cachedData: Promise<any>;
 
-    constructor(private http: Http, private code: string, private defaultPage: number = 1, private cache = true) {
+    constructor(protected http: Http, private code: string, private defaultPage: number = 1, private cache = true) {
         if (this.cache) {
             this.cachedData = this.getPage();
         }
