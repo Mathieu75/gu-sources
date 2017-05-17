@@ -1,3 +1,4 @@
+import { SharedModule } from './../shared/shared.module';
 import { CandidatService } from './candidat.service';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
@@ -12,10 +13,13 @@ import { CandidatSubscribeFormComponent } from './candidat-subscribe-form/candid
 import { CandidatSubscribeComponent } from './candidat-subscribe/candidat-subscribe.component';
 import { CandidatSearchComponent } from './candidat-search/candidat-search.component';
 import { CandidatsListComponent } from './candidats-list/candidats-list.component';
+import { OkViewComponent } from './ok-view/ok-view.component';
+import { CandidatAddComponent } from './candidat-add/candidat-add.component';
 
 @NgModule({
   imports: [
     CommonModule,
+    SharedModule,
     HttpModule,
     FormsModule,
     RouterModule,
@@ -27,11 +31,15 @@ import { CandidatsListComponent } from './candidats-list/candidats-list.componen
     CandidatSubscribeFormComponent,
     CandidatSubscribeComponent,
     CandidatSearchComponent,
-    CandidatsListComponent
+    CandidatsListComponent,
+    OkViewComponent,
+    CandidatAddComponent
   ],
   exports: [
     CircoSearchComponent,
-    CandidatSubscribeFormComponent
+    CandidatSubscribeComponent,
+    OkViewComponent,
+    CandidatAddComponent
   ]
 })
 export class CircoModule {

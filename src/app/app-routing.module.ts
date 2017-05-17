@@ -1,3 +1,6 @@
+import { CandidatAddComponent } from './circo/candidat-add/candidat-add.component';
+import { SubscribeComponent } from './milit/subscribe/subscribe.component';
+import { OkViewComponent } from './circo/ok-view/ok-view.component';
 import { CandidatSubscribeComponent } from './circo/candidat-subscribe/candidat-subscribe.component';
 import { MilitHomeComponent } from './core/milit-home/milit-home.component';
 import { CandidatsShowComponent } from './circo/candidats-show/candidats-show.component';
@@ -20,6 +23,10 @@ const routes: Routes = [
     component: CandidatsShowComponent
   },
   {
+    path: 'circo/candidat/add',
+    component: CandidatAddComponent
+  },
+  {
     path: 'articles',
     loadChildren: 'app/articles/articles.module#ArticlesModule'
   },
@@ -28,8 +35,16 @@ const routes: Routes = [
     component: MilitHomeComponent
   },
   {
+    path: 'milit/sub',
+    component: SubscribeComponent
+  },
+  {
     path: 'milit/candidat',
     component: CandidatSubscribeComponent
+  },
+  {
+    path: 'milit/ok',
+    component: OkViewComponent
   }
 ];
 

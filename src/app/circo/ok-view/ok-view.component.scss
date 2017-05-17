@@ -1,0 +1,7 @@
+:host {
+    text-align: center;
+}
+
+:host > div > * {
+    margin: 3em 0;
+}

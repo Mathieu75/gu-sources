@@ -2,8 +2,8 @@
 
 @import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:700');
 
-//default red : d51317
-//default green : 7eb712
+/*default red : d51317
+default green : 7eb712*/
 
 /* COLOR */
 $body-bg: none;
@@ -18,11 +18,14 @@ $circo-rslt-bg-hover: #7eb712;
 $circo-rslt-bg: #a9d067;
 $circo-rslt-text: #fff;
 
-$card-bg:#7eb712;
-$card-text:#fff;
+$card-bg:#e5f0d8;
+$card-text:#5e9702;
+
+$card-strong-bg:#d51317;
+$card-strong-text:#fff;
 
 $candidat-card-bg:#e5f0d8;
-$candidat-card-text:#7eb712;
+$candidat-card-text:#5e9702;
 $candidat-card-picture-bg:#7eb712;
 
 $article-note-text: #d51317;
@@ -82,10 +85,16 @@ header {
         background-color: $candidat-card-bg;
         color: $candidat-card-text;
     }
+
+    &.strong {
+        background-color: $card-strong-bg;
+        color: $card-strong-text;
+    }
     .picture {
         background-color: $candidat-card-picture-bg;
     }
 }
+
 
 .article{
     .note {
@@ -182,6 +191,21 @@ button {
     border-radius: 0px;
 }
 
+.form-control:focus {
+    border-color: #66afe9;
+    border-left: 5px solid #66afe9;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102,175,233,.6);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102,175,233,.6);
+}
+
+.form-control.ng-valid[required], .form-control.ng-valid.required  {
+  border-left: 5px solid rgba(126, 183, 18, 1);
+}
+
+.form-control.ng-invalid:not(form)  {
+  border-left: 5px solid rgba(213, 19, 23, 1);
+}
 
 input.search {
     background-image: url("/assets/search-icon.png");
@@ -189,21 +213,43 @@ input.search {
     background-repeat: no-repeat;
 }
 
-input[type="text"] {
+input[type="text"], input[type="tel"], select {
+    border: 2px solid #ccc;
     border-radius: 4px;
     font-size: 16px;
     display: block;
     padding: 12px 20px 12px 40px;
+    margin: 0;
+}
+
+
+input[readonly] {
+    background-color: rgba(0,0,0,0.12);
+
+    .icon {
+        background-color: rgba(0,0,0,0.12);
+    }
+}
+
+.icon {
+    width: 24px;
+    height: 24px;
+    line-height: 24px;
+    cursor: pointer;
+}
+
+.delete.icon {
+    background: url('/assets/icons/cancel_black.svg') no-repeat right top;
 }
 
 .deletable-input {
 
     position: relative;
 
-    input[type="text"] {
-        padding-right: 16px;
+    input[type="text"], input[type="tel"] {
+        padding-right: 43px;
         display: block;
-        width: calc(100% - 60px);
+        width: calc(100% - 90px) !important;
         height: 100%;
     }
 
@@ -212,15 +258,32 @@ input[type="text"] {
         display: block;
         top: 12px;
         right: 10px;
-        width: 24px;
-        height: 24px;
-        line-height: 24px;
-        cursor: pointer;
-        background: url('/assets/icons/cancel_black.svg') no-repeat right top;
     }
 }
 
 .form-group {
     margin-bottom: 15px;
+}
+
+.input-alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    color: #d51317;
+}
+
+.round {
+    border-radius: 40px;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    display: inline-block;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bolder;
+    color: #fff;
+    padding: 0;
+    box-shadow: none;
 }
 

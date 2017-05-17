@@ -1,19 +1,96 @@
-<form>
+<form #engagementForm="ngForm" (ngSubmit)="onSubmit()">
+
+  <div class="comment">
+    <p>
+      Tout d'abord, merci de sélectionner la "fiche" correspondant à votre candidature. Dans le cas où celle-ci ne soit pas encore
+      disponible, vous pourrez la créer en cliquant sur le bouton "+".
+    </p>
+
+    <p>
+      Le champs "circonscription" est uniquement destiné à simplifier votre recherche, et sera automatiquement corrigé à la sélection
+      de votre "fiche"
+    </p>
+  </div>
+
   <div class="form-group">
     <label for="circo">Votre circonscription</label>
-    <app-circo-search (select)="onCircoSelect($event)" *ngIf="!candidat.circo"></app-circo-search>
-    <div *ngIf="candidat.circo" class="deletable-input">
-      <input type="text" name="circo" readonly="readonly" [ngModel]="candidat.circo" required /><span class="delete icon"
-        (click)="candidat.circo = ''"></span>
+    <app-circo-search (select)="onCircoSelect($event)" *ngIf="!circoId"></app-circo-search>
+    <div [hidden]="!circoId" class="deletable-input">
+      <input type="text" class="form-control" name="circo" readonly="readonly" [ngModel]="circoId" />
+      <span class="delete icon" (click)="circoId = ''"></span>
     </div>
   </div>
   <div class="form-group">
     <label for="candidat">Vous êtes ...</label>
-    <app-candidat-search [circoId]="candidat.circo" (select)="onCandidatSelect($event)" *ngIf="!candidat.candidat"></app-candidat-search>
-    <div *ngIf="candidat.candidat" class="deletable-input">
-      <input type="text" name="candidat" readonly="readonly" [ngModel]="candidat.candidat.gsx$id.$t" required /><span class="delete icon"
-        (click)="candidat.candidat = ''"></span>
+    <app-candidat-search [circoId]="circoId" (select)="onCandidatSelect($event)" *ngIf="!engagement.candidatId"></app-candidat-search>
+    <div [hidden]="!engagement.candidatId" class="deletable-input">
+      <input type="text" class="form-control" #candidat="ngModel" name="candidat" readonly="readonly" [ngModel]="engagement.candidatId"
+        required />
+      <span class="delete icon" (click)="engagement.candidatId = ''"></span>
+    </div>
+    <div *ngIf="showComponentsErrors && !engagement.candidatId" class="input-alert">
+      Vous devez sélectionner votre "fiche candidat" afin d'y associer votre engagement.
     </div>
   </div>
-  <button type="submit" class="button">Submit</button>
+  <p class="comment">Les informations de contact suivantes nous permettront de vérifier votre identité.</p>
+  <div class="form-group">
+    <label for="telComite">Numéro de téléphone de votre comité de campagne</label>
+    <input type="tel" (blur)="onInputBlur()" class="form-control" #telComite="ngModel" name="telComite" [(ngModel)]="engagement.telComite"
+      required="true" minlength="10" maxlength="10" pattern="0[1-9][0-9]*" />
+    <div *ngIf="telComite.errors && (telComite.dirty || telComite.touched)" class="input-alert">
+      <div [hidden]="!telComite.errors.required">
+        Vous devez renseigner le numéro de téléphone de votre comité de campagne.
+      </div>
+      <div [hidden]="!telComite.errors.minlength || !telComite.errors.maxlength">
+        Le numéro de téléphone doit comprendre 10 caractères.
+      </div>
+      <div [hidden]="!telComite.errors.pattern">
+        Le numéro de téléphone doit commencer par un 0, suivit d'un chiffre de 1 à 9, puis de 8 chiffres de 0 à 9.
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="tel">Numéro de téléphone (ligne directe)</label>
+    <input type="tel" (blur)="onInputBlur()" class="form-control" #telDirect="ngModel" name="tel" [(ngModel)]="engagement.telDirect"
+      required="true" minlength="10" maxlength="10" pattern="0[1-9][0-9]*" />
+    <div *ngIf="telDirect.errors && (telDirect.dirty || telDirect.touched)" class="input-alert">
+      <div [hidden]="!telDirect.errors.required">
+        Nous avons besoin du numéro de téléphone de votre ligne directe afin de vérifier votre identité.
+      </div>
+      <div [hidden]="!telDirect.errors.minlength || !telDirect.errors.maxlength">
+        Le numéro de téléphone doit comprendre 10 caractères.
+      </div>
+      <div [hidden]="!telDirect.errors.pattern">
+        Le numéro de téléphone doit commencer par un 0, suivit d'un chiffre de 1 à 9, puis de 8 chiffres de 0 à 9.
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="mail">Adresse Email</label>
+    <input type="text" (blur)="onInputBlur()" class="form-control" name="mail" #mail="ngModel" [(ngModel)]="engagement.mail"
+      required="true" minlength="5" pattern="^[a-z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)*$"
+    />
+    <div *ngIf="mail.errors && (mail.dirty || mail.touched)" class="input-alert">
+      <div [hidden]="!mail.errors.required">
+        Nous avons besoin de votre adresse email afin de vous contacter.
+      </div>
+      <div [hidden]="!mail.errors.pattern">
+        Vous devez entrer une adresse email valide - exemple : candidat@degauche.fr
+      </div>
+    </div>
+  </div>
+
+  <p class="comment">
+    Afin d'attester de votre engagement, ainsi que de votre identité, nous vous demandons d'écrire, de manière manuscrite, la
+    mention "Je m'engage pour la gauche unie" suivie, en dessous à droite, de votre signature, et de la prendre en photo,
+    ou de la scanner (au format image), puis de nous la communiquer via l'outil ci-dessous.
+  </p>
+
+  <app-photo-upload once="true" (uploadSuccess)="onEngagementUploadSuccess($event)"></app-photo-upload>
+
+  <div *ngIf="showComponentsErrors && !engagement.img" class="input-alert">
+    Il est impératif que vous nous communiquiez ce fichier afin de valider votre engagement.
+  </div>
+
+  <button type="submit" class="button" [disabled]="!engagementForm.valid">Envoyer</button>
 </form>

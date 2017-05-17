@@ -15,6 +15,10 @@ input[type="tel"], input[type="text"] {
     width: calc(100% - 60px);
 }
 
+select {
+    width: 100%;
+}
+
 .comment {
     font-style: italic;
     margin-top: 3em;

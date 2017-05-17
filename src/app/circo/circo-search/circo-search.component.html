@@ -1,5 +1,5 @@
 <div class="circo">
-  <input type="text" class="search" [(ngModel)]="model.search" (ngModelChange)="onSearchChange($event)" placeholder="Rechercher votre circonscription. Exemple: Paris, 11ème"
+  <input type="text" class="search" [(ngModel)]="model.search" (ngModelChange)="onSearchChange($event)" placeholder="Rechercher votre circonscription (exemple: Paris, 11ème)"
   />
   <h3 *ngIf="model.search.length > 0">{{filteredCircos.length}} sur {{circos.length}}</h3>
   <ul class="rslt no-list" *ngIf="model.search">

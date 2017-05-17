@@ -20,8 +20,6 @@ export class CandidatsListComponent implements OnInit {
 
   @Output() select = new EventEmitter<any>();
 
-  constructor() { }
-
   ngOnInit() {
   }
 
