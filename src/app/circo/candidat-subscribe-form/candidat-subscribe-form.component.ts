@@ -1,4 +1,5 @@
-import { Router } from '@angular/router';
+import { FormStatesService } from './../../core/form-states.service';
+import { Router, NavigationStart } from '@angular/router';
 import { CandidatService } from './../candidat.service';
 import { Http } from '@angular/http';
 import { Component, OnInit, ViewChild } from '@angular/core';
@@ -15,11 +16,26 @@ export class CandidatSubscribeFormComponent implements OnInit {
   candidat: any = {};
   circoId: number;
 
+  private readonly stateKey = 'candidat-engagement';
+  private shouldSave = true;
+
   showComponentsErrors = false;
 
-  constructor(private candidatServ: CandidatService, private router: Router) { }
+  constructor(private candidatServ: CandidatService, private router: Router, private state: FormStatesService) {
+    const preState = this.state.get(this.stateKey);
+    this.candidat = preState.candidat || {};
+    this.circoId = preState.circoId || null;
+    this.engagement = preState.engagement || {};
+
+    router.events.subscribe((evt) => {
+      if (evt instanceof NavigationStart && this.shouldSave) {
+        this.state.set(this.stateKey, { candidat: this.candidat, circoId: this.circoId, engagement: this.engagement });
+      }
+    });
+  }
 
   ngOnInit() {
+
   }
 
   onCircoSelect(circoId: number) {
@@ -37,11 +53,13 @@ export class CandidatSubscribeFormComponent implements OnInit {
 
   onSubmit() {
     this.candidatServ.addEngagement(this.engagement).then(() => {
+      this.state.delete(this.stateKey);
+      this.shouldSave = false;
       this.router.navigateByUrl('/milit/ok');
     });
   }
 
-  onEngagementUploadSuccess(event: {file, data, status}) {
+  onEngagementUploadSuccess(event: { file, data, status }) {
     this.engagement.img = event.data.url;
   }
 

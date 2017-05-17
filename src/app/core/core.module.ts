@@ -1,3 +1,4 @@
+import { FormStatesService } from './form-states.service';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CircoModule } from './../circo/circo.module';
@@ -20,6 +21,9 @@ import { MilitHomeComponent } from './milit-home/milit-home.component';
   ],
   exports: [
     HeaderComponent
+  ],
+  providers: [
+    FormStatesService
   ]
 })
 export class CoreModule { }
