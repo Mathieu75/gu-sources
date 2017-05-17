@@ -1,3 +1,4 @@
+import { MilitModule } from './milit/milit.module';
 import { RouterModule } from '@angular/router';
 import { CircoModule } from './circo/circo.module';
 import { AppRoutingModule } from './app-routing.module';
@@ -22,7 +23,8 @@ import { AppComponent } from './app.component';
     FormsModule,
     CoreModule,
     AppRoutingModule,
-    CircoModule.forRoot()
+    CircoModule.forRoot(),
+    MilitModule.forRoot()
   ],
   bootstrap: [AppComponent]
 })

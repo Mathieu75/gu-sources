@@ -1,3 +1,4 @@
+import { SubscribeComponent } from './milit/subscribe/subscribe.component';
 import { OkViewComponent } from './circo/ok-view/ok-view.component';
 import { CandidatSubscribeComponent } from './circo/candidat-subscribe/candidat-subscribe.component';
 import { MilitHomeComponent } from './core/milit-home/milit-home.component';
@@ -27,6 +28,10 @@ const routes: Routes = [
   {
     path: 'milit/home',
     component: MilitHomeComponent
+  },
+  {
+    path: 'milit/sub',
+    component: SubscribeComponent
   },
   {
     path: 'milit/candidat',

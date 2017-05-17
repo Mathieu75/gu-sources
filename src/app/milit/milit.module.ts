@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SubscribeComponent } from './subscribe/subscribe.component';
 
@@ -6,6 +6,19 @@ import { SubscribeComponent } from './subscribe/subscribe.component';
   imports: [
     CommonModule
   ],
-  declarations: [SubscribeComponent]
+  declarations: [
+    SubscribeComponent
+  ],
+  exports: [
+    SubscribeComponent
+  ]
 })
-export class MilitModule { }
+export class MilitModule {
+  static forRoot(): ModuleWithProviders {
+    return {
+      ngModule: MilitModule,
+      providers: [
+      ]
+    };
+  }
+ }
