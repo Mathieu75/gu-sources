@@ -141,3 +141,17 @@ input[readonly] {
     color: #d51317;
 }
 
+.round {
+    border-radius: 40px;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    display: inline-block;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bolder;
+    color: #fff;
+    padding: 0;
+    box-shadow: none;
+}
+

@@ -1,3 +1,4 @@
+import { CandidatAddComponent } from './circo/candidat-add/candidat-add.component';
 import { SubscribeComponent } from './milit/subscribe/subscribe.component';
 import { OkViewComponent } from './circo/ok-view/ok-view.component';
 import { CandidatSubscribeComponent } from './circo/candidat-subscribe/candidat-subscribe.component';
@@ -20,6 +21,10 @@ const routes: Routes = [
   {
     path: 'circo/:id',
     component: CandidatsShowComponent
+  },
+  {
+    path: 'circo/candidat/add',
+    component: CandidatAddComponent
   },
   {
     path: 'articles',

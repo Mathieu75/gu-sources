@@ -38,7 +38,8 @@ import { CandidatAddComponent } from './candidat-add/candidat-add.component';
   exports: [
     CircoSearchComponent,
     CandidatSubscribeComponent,
-    OkViewComponent
+    OkViewComponent,
+    CandidatAddComponent
   ]
 })
 export class CircoModule {
