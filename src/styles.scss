@@ -83,12 +83,13 @@ input.search {
     background-repeat: no-repeat;
 }
 
-input[type="text"], input[type="tel"] {
+input[type="text"], input[type="tel"], select {
     border: 2px solid #ccc;
     border-radius: 4px;
     font-size: 16px;
     display: block;
     padding: 12px 20px 12px 40px;
+    margin: 0;
 }
 
 input[readonly] {
@@ -115,9 +116,9 @@ input[readonly] {
     position: relative;
 
     input[type="text"], input[type="tel"] {
-        padding-right: 16px;
+        padding-right: 43px;
         display: block;
-        width: calc(100% - 60px);
+        width: calc(100% - 90px) !important;
         height: 100%;
     }
 

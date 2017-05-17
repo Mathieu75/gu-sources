@@ -1,0 +1,36 @@
+form {
+    margin-top: 5em;
+}
+
+.form-group, .comment,  {
+    text-align: justify;
+}
+
+label {
+    display: inline-block;
+    margin-bottom: 1em;
+}
+
+input[type="tel"], input[type="text"] {
+    width: calc(100% - 60px);
+}
+
+select {
+    width: 100%;
+}
+
+.comment {
+    font-style: italic;
+    margin-top: 3em;
+    margin-bottom: 2em;
+
+    p:nth-child(1) {
+        margin-top: 0;
+    }
+}
+
+[type="submit"] {
+    display: block;
+    width: 120px;
+    margin: 3em auto;
+}

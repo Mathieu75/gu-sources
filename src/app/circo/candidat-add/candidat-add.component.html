@@ -1,3 +1,79 @@
-<p>
-  candidat-add works!
-</p>
+<div>
+  <h2>Ajouter une "fiche candidat"</h2>
+  <form #newCandidatForm="ngForm" (ngSubmit)="onSubmit()">
+
+    <div class="comment">
+      <p>
+        lorem ipsum
+      </p>
+    </div>
+
+    <div class="form-group">
+      <label for="circo">Circonscription</label>
+      <app-circo-search (select)="onCircoSelect($event)" *ngIf="!candidat.circoId"></app-circo-search>
+      <div [hidden]="!candidat.circoId" class="deletable-input">
+        <input type="text" class="form-control" name="circo" readonly="readonly" [ngModel]="candidat.circoId" required />
+        <span class="delete icon" (click)="candidat.circoId = ''"></span>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="nom">Nom</label>
+      <input type="text" class="form-control" #nom="ngModel" name="nom" [(ngModel)]="candidat.nom" required="true" placeholder="Entrez le nom de famille du candidat"
+      />
+      <div *ngIf="nom.errors && (nom.dirty || nom.touched)" class="input-alert">
+        <div [hidden]="!prenom.errors.required">
+          Vous devez renseigner le nom de famille du candidat.
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="prenom">Prénom</label>
+      <input type="text" class="form-control" #prenom="ngModel" name="prenom" [(ngModel)]="candidat.prenom" required="true" placeholder="Entrez le prénom du candidat"
+      />
+      <div *ngIf="prenom.errors && (prenom.dirty || prenom.touched)" class="input-alert">
+        <div [hidden]="!prenom.errors.required">
+          Vous devez renseigner le prénom du candidat.
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="groupe">Groupe</label>
+      <select class="form-control" #groupe="ngModel" name="groupe" [(ngModel)]="candidat.groupe" required="true">
+        <option value="FBCF">Faire Battre le Coeur de la France (PS ou EELV Hamonistes)</option> 
+        <option value="PCF">Parti Communiste Français</option>
+        <option value="EELV">Europe Ecologie Les Verts</option>
+        <option value="FI">La France Insoumise</option>
+      </select>
+      <div *ngIf="groupe.errors && (groupe.dirty || groupe.touched)" class="input-alert">
+        <div [hidden]="!groupe.errors.required">
+          Vous devez renseigner le groupe du candidat.
+        </div>
+      </div>
+    </div>
+
+    <p class="comment">
+      Afin d'illuster la fiche du candidat, vous pouvez donner le lien vers une "image de profil", ou un uploader une.
+    </p>
+
+    <div class="form-group">
+      <label for="picture">Photo</label>
+      <div class="deletable-input">
+        <input type="text" class="form-control" #picture="ngModel" name="picture" [(ngModel)]="candidat.picture" required="true"
+          placeholder="entrez l'url d'une image" pattern="(https?:\/\/.+)" [readonly]="readonlyPictureUrl" />
+        <span class="delete icon" *ngIf="readonlyPictureUrl" (click)="circoId = ''"></span>
+      </div>
+
+      <p *ngIf="!candidat.picture">Ou</p>
+      <app-photo-upload *ngIf="!candidat.picture" once="true" (uploadSuccess)="onPictureUploadSuccess($event)"></app-photo-upload>
+      <div *ngIf="(picture.dirty || picture.touched) && picture.errors" class="input-alert">
+        <div [hidden]="!picture.errors.required && candidat.picture !== ''">
+          Vous devez uploader ou indiquer l'url d'une photo du candidat .
+        </div>
+        <div [hidden]="!picture.errors.pattern">
+          Vous devez entrer une adresse web valide, ie. commençant par http:// ou https://.
+        </div>
+      </div>
+    </div>
+
+    <button type="submit" class="button" [disabled]="!newCandidatForm.valid">Envoyer</button>
+  </form>

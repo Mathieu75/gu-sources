@@ -7,9 +7,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CandidatAddComponent implements OnInit {
 
+  candidat: any = {};
+  readonlyPictureUrl = false;
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onCircoSelect(circoId) {
+    this.candidat.circoId = circoId;
+  }
+
+  onPictureUploadSuccess(picture) {
+    this.candidat.picture = picture.data.url;
+    this.readonlyPictureUrl = true;
   }
 
 }
