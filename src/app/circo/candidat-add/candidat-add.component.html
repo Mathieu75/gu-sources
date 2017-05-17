@@ -10,10 +10,10 @@
 
     <div class="form-group">
       <label for="circo">Circonscription</label>
-      <app-circo-search (select)="onCircoSelect($event)" *ngIf="!candidat.circoId"></app-circo-search>
-      <div [hidden]="!candidat.circoId" class="deletable-input">
-        <input type="text" class="form-control" name="circo" readonly="readonly" [ngModel]="candidat.circoId" required />
-        <span class="delete icon" (click)="candidat.circoId = ''"></span>
+      <app-circo-search (select)="onCircoSelect($event)" *ngIf="!candidat.circo"></app-circo-search>
+      <div [hidden]="!candidat.circo" class="deletable-input">
+        <input type="text" class="form-control" name="circo" readonly="readonly" [ngModel]="candidat.circo" required />
+        <span class="delete icon" (click)="candidat.circo = ''"></span>
       </div>
     </div>
     <div class="form-group">
@@ -60,7 +60,7 @@
       <div class="deletable-input">
         <input type="text" class="form-control" #picture="ngModel" name="picture" [(ngModel)]="candidat.picture" required="true"
           placeholder="entrez l'url d'une image" pattern="(https?:\/\/.+)" [readonly]="readonlyPictureUrl" />
-        <span class="delete icon" *ngIf="readonlyPictureUrl" (click)="circoId = ''"></span>
+        <span class="delete icon" *ngIf="readonlyPictureUrl" (click)="candidat.picture = ''"></span>
       </div>
 
       <p *ngIf="!candidat.picture">Ou</p>
