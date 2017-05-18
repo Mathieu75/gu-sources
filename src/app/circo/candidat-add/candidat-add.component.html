@@ -75,5 +75,12 @@
       </div>
     </div>
 
+    <p class="comment">
+      Nous vous encourageons à ajouter un maximum d'informations sur le candidat, à l'aide des liens suivants, afin de permettre à chacun de se faire son propre avis de manière objective.<br />
+      Attention : vos liens seront enregistrés lors de l'ajout du candidat uniquement si vous avez cliqué sur le bouton associé.
+    </p>
+
+    <app-candidat-link-edit (save)="onLinksSaved($event)"></app-candidat-link-edit>
+
     <button type="submit" class="button" [disabled]="!newCandidatForm.valid">Envoyer</button>
   </form>
