@@ -7,14 +7,18 @@
   </a>
 
   <div class="menu" [class.active]="menu">
-    <a class="button" href="#" [routerLink]="['/milit', 'home']">
-      Vous engager
+    
+    <a class="menu-home" routerLink="/home">
+      Accueil
     </a>
     <a href="#" [routerLink]="['/articles', 'principe']"> 
       Le principe
     </a>
     <a href="#" [routerLink]="['/articles', 'charte']"> 
       La charte
+    </a>
+    <a class="button" href="#" [routerLink]="['/milit', 'home']">
+      Vous engager
     </a>
   </div>
 </header>
