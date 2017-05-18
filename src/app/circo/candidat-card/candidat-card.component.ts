@@ -27,10 +27,10 @@ export class CandidatCardComponent implements OnInit {
 
     this._candidat.liens = [];
     for (let i = 2; i < 12; i++) {
-      if (candidat['gsx$lienurl' + (i === 1 ? '' : `_${i}`)].$t) {
+      if (candidat['gsx$lienurl' + (i === 1 ? '' : `${i}`)].$t) {
           this._candidat.liens.push({
-            url: candidat['gsx$lienurl' + (i === 1 ? '' : `_${i}`)].$t,
-            texte: candidat['gsx$lientext' + (i === 1 ? '' : `_${i}`)].$t
+            url: candidat['gsx$lienurl' + (i === 1 ? '' : `${i}`)].$t,
+            texte: candidat['gsx$lientext' + (i === 1 ? '' : `${i}`)].$t
           });
       }
     }
