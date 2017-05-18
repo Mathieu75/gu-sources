@@ -1,0 +1,28 @@
+<form class="wrapper" #linksForm="ngForm">
+  <div class="form-group" *ngFor="let link of links; let i = index; trackBy: trackLink">
+    <span class="delete icon" (click)="removeLink(i)"></span>
+    <label>Texte</label>
+    <input type="text" class="form-control" [(ngModel)]="link.texte" #text="ngModel" required name="url"/>
+    <div *ngIf="text.errors && (text.dirty || text.touched)" class="input-alert">
+      <div [hidden]="!text.errors.required">
+        Vous devez entrer une description pour ce lien.
+      </div>
+    </div>
+    <label>URL</label>
+    <input type="text" class="form-control" [(ngModel)]="link.url" #url="ngModel" required pattern="(https?:\/\/.+)" name="texte"/>
+    <div *ngIf="url.errors && (url.dirty || url.touched)" class="input-alert">
+      <div [hidden]="!url.errors.required">
+        Vous devez entrer une adresse pour ce lien.
+      </div>
+      <div [hidden]="!url.errors.pattern">
+        Vous devez entrer une adresse valide.
+      </div>
+    </div>
+  </div>
+
+  <div class="add-wrapper">
+    <div class="button round" (click)="addLink()" *ngIf="links.length < 10">+</div>
+  </div>
+
+  <div class="button save" (click)="saveLinks()" [class.disabled]="!linksForm.valid" >Enregistrer</div>
+</form>

@@ -1,3 +1,4 @@
+import { Link } from './../candidat-link-edit/candidat-link-edit.component';
 import { Router } from '@angular/router';
 import { CandidatService } from './../candidat.service';
 import { Component, OnInit } from '@angular/core';
@@ -18,7 +19,7 @@ export class CandidatAddComponent implements OnInit {
   }
 
   onCircoSelect(circoId) {
-    this.candidat.circoId = circoId;
+    this.candidat.circo = circoId;
   }
 
   onPictureUploadSuccess(picture) {
@@ -29,6 +30,13 @@ export class CandidatAddComponent implements OnInit {
   onSubmit() {
     this.candidatServ.addCandidat(this.candidat).then(() => {
       this.router.navigateByUrl('/milit/ok');
+    });
+  }
+
+  onLinksSaved(links: Link[]) {
+    links.forEach((link) => {
+        this.candidat[`lien_text${ link.id === 1 ? '' : link.id }`] = link.texte;
+        this.candidat[`lien_url${ link.id === 1 ? '' : link.id }`] = link.url;
     });
   }
 
