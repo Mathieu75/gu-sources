@@ -18,13 +18,13 @@ $circo-rslt-bg-hover: #7eb712;
 $circo-rslt-bg: #a9d067;
 $circo-rslt-text: #fff;
 
-$card-bg:#e5f0d8;
+$card-bg:#f2f8e7;
 $card-text:#5e9702;
 
 $card-strong-bg:#d51317;
 $card-strong-text:#fff;
 
-$candidat-card-bg:#e5f0d8;
+$candidat-card-bg:#f2f8e7;
 $candidat-card-text:#5e9702;
 $candidat-card-picture-bg:#7eb712;
 
@@ -33,7 +33,7 @@ $article-border-b: #d51317;
 
 $header-bg: #d51317;
 $header-text: #fff;
-$header-a-bg-hover: rgba(255,255,255,.12);
+$header-a-bg-hover: #e1595C;
 
 $input-border:#ccc;
 $input-bg:rgba(0,0,0,0.12);
@@ -154,6 +154,7 @@ input[readonly] {
 .card {
     border-radius: 5px;
     text-align: justify;
+    word-wrap: break-word;
     padding : 30px;
     margin: 1em auto;
     &[disabled], &.disabled {

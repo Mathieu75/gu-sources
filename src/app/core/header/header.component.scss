@@ -1,12 +1,13 @@
 
 header {
     font-family: 'Roboto Condensed', sans-serif;
-    padding: 0.5em;
     font-size: 12px;
 }
 
 .menu {
     display: inline-block;
+    vertical-align: top;
+    width: 100%;
 }
 
 .burger {
@@ -14,12 +15,16 @@ header {
     display: none;
 }
 
+.title-burger{
+    display: none
+}
+
 .button {
-    position: absolute;
+    float: right;
     right: 20px;
     top: 15px;
-    border-radius: 2px;
-    box-shadow: 0 3px 3px 0 rgba(0,0,0,0.14), 0 1px 7px 0 rgba(0,0,0,0.12), 0 3px 1px -1px rgba(0,0,0,0.2)
+    border-radius: 0px;
+    box-shadow: none;
 }
 
 a {
@@ -27,22 +32,30 @@ a {
     margin: 0px 20px;
     display: inline-block;
     text-decoration: none;
-    font-size: large;
-    padding : 0.5em 1em;
+    font-size: 20px;
+    padding: 20px;
 }
 
+
+.title-burger,
 .title {
-    font-size: x-large;
+    font-size: 24px;
+    padding-bottom: 20px;
+    padding-top: 16px;
 }
+
+
 
 
 @media only screen and (max-width : 1024px) {
     .burger {
-        display: inline-block
+        display: inline-block;
     }
-
-    .title {
+    
+    .title-burger {
+        display: inline-block;
         width: calc(100% - 120px - 1em);
+        margin-left: 0; 
     }
 
     .menu {
@@ -50,14 +63,20 @@ a {
 
         &.active {
             display: block;
+            padding-bottom: 15px; 
         }
 
         a {
             display: block;
         }
 
+        a.title {
+            display: none;
+        }
+
         .button {
             position: initial;
+            float: none;
         }
     }
 }
