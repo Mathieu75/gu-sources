@@ -1,17 +1,11 @@
 .card {
     font-size: large;
     margin : 3em 0;
-    background-color: rgba(0, 0, 0, .06);
 
     .author {
         text-align: right;
         padding-right: 20%;
     }
-}
-
-.card.strong {
-    background-color: #d51317;
-    color: #fff;
 }
 
 ul {

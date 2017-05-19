@@ -2,30 +2,163 @@
 
 @import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:700');
 
+/*default red : d51317
+default green : 7eb712*/
+
+/* COLOR */
+$body-bg: none;
+$field-valid: #7eb712;
+$field-invalid: #d51317;
+
+$button-bg-hover: #5e9702;
+$button-bg: #7eb712;
+$button-text: #fff;
+
+$circo-rslt-bg-hover: #7eb712;
+$circo-rslt-bg: #a9d067;
+$circo-rslt-text: #fff;
+
+$card-bg:#f2f8e7;
+
+$card-strong-bg:#d51317;
+$card-strong-text:#fff;
+
+$candidat-card-bg:#f2f8e7;
+$candidat-card-text:#5e9702;
+$candidat-card-picture-bg:#d51317;
+
+$article-note-text: #d51317;
+$article-border-b: #d51317;
+
+$header-bg: #d51317;
+$header-text: #fff;
+$header-a-bg-hover: #e1595C;
+
+$input-border:#ccc;
+$input-bg:rgba(0,0,0,0.12);
+
+body{
+    background-color: $body-bg;
+}
+
+header {
+    box-shadow: 0 1px 20px -1px $header-bg;
+    background-color: $header-bg;
+    color: $header-text;
+
+    .burger {
+        fill: $header-text;
+    }
+
+    a{
+        color: $header-text;
+        &:hover:not(.button) {
+            background-color: $header-a-bg-hover;
+        }
+    }
+}
+
+
+.circo{
+    .rslt {
+
+        li {
+            background-color: $circo-rslt-bg;
+        }
+
+        li:hover {
+            background-color: $circo-rslt-bg-hover
+        }
+
+        a {
+            color: $circo-rslt-text;
+        }
+    }
+}
+
 .card {
-    border-radius: 5px;
-    text-align: justify;
-    padding : 30px;
-    margin: 1em auto;
+    background-color: $card-bg;
+    
+    &.wrapper {
+        background-color: $candidat-card-bg;
+    }
+
+    &.strong {
+        background-color: $card-strong-bg;
+        color: $card-strong-text;
+    }
+    .picture {
+        background-color: $candidat-card-picture-bg;
+    }
+}
+
+
+.article{
+    .note {
+        color: $article-note-text;
+    }
+
+    h2 {
+        border-bottom: 2px solid $article-border-b;
+    }
+
+    h3 {
+        border-bottom: 1px solid $article-border-b;
+    }
+}
+
+
+.button {
+    color: $button-text;
+    background-color: $button-bg;
+
+    &:hover {
+        background-color:$button-bg-hover;
+    }
+}
+
+.ng-valid[required], .ng-valid.required  {
+  border-left: 5px solid $field-valid;
+}
+
+.ng-invalid:not(form)  {
+  border-left: 5px solid $field-invalid;
+}
+
+input[type="text"] {
+    border: 2px solid $input-border;
+}
+
+input[readonly] {
+    background-color: $input-bg;
+
+    .icon {
+        background-color: $input-bg;
+    }
 }
 
 .button {
+    text-align: center;
+    font-weight: bold;
+    cursor:pointer;
     margin: 0.5em 0;
     padding: 1em 1em;
     border-radius: 4px;
     box-shadow: 0 3px 3px 0 rgba(0,0,0,0.14), 0 1px 7px 0 rgba(0,0,0,0.12), 0 3px 1px -1px rgba(0,0,0,0.2);
     text-decoration: none;
-    color: #fff;
-    background-color: rgba(126, 183, 18, 0.88);
+ }
 
-    &:hover {
-        background-color: rgba(126, 183, 18, 1);
-    }
-
+.card {
+    border-radius: 5px;
+    text-align: justify;
+    word-wrap: break-word;
+    padding : 30px;
+    margin: 1em auto;
     &[disabled], &.disabled {
         background-color: rgba(0, 0, 0, .25);
     }
 }
+
 
 .no-list {
     list-style: none;
@@ -37,7 +170,6 @@
     h2 {
         margin-bottom: 3em;
         margin-top: 3em;
-        border-bottom: 2px solid #d51317;
     }
 
     h3 {
@@ -45,7 +177,6 @@
         margin-left: 0em;
         padding-right: 5em;
         margin-bottom: 1em;
-        border-bottom: 1px solid #d51317;
         display: inline-block;
     }
 
@@ -57,7 +188,7 @@
 button {
     border: 0;
     background: none;
-    box-shadow:none;
+    box-shadow: none;
     border-radius: 0px;
 }
 
@@ -91,6 +222,7 @@ input[type="text"], input[type="tel"], select {
     padding: 12px 20px 12px 40px;
     margin: 0;
 }
+
 
 input[readonly] {
     background-color: rgba(0,0,0,0.12);
