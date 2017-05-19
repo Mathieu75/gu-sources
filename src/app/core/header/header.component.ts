@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -9,9 +9,20 @@ export class HeaderComponent implements OnInit {
 
   menu = false;
 
-  constructor() { }
+  @HostListener('document:click', ['$event'])
+  clickOut(event) {
+    if (!this.eRef.nativeElement.contains(event.target)) {
+      this.closeMenu();
+    }
+  }
+
+  constructor(private eRef: ElementRef) { }
 
   ngOnInit() {
+  }
+
+  closeMenu() {
+    this.menu = false;
   }
 
 }

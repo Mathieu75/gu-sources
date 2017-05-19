@@ -6,7 +6,7 @@
     La Gauche Unie
   </a>
 
-  <div class="menu" [class.active]="menu">
+  <div class="menu" [class.active]="menu"  (click)="closeMenu()">
     <a routerLink="/home" class="title">
       La Gauche Unie
     </a>
@@ -14,13 +14,13 @@
     <a class="menu-home" routerLink="/home" [routerLinkActive]="['active']">
       Accueil
     </a>
-    <a href="#" [routerLink]="['/articles', 'principe']" [routerLinkActive]="['active']"> 
+    <a href="#" [routerLink]="['/articles', 'principe']" [routerLinkActive]="['active']" (click)="closeMenu()"> 
       Le principe
     </a>
-    <a href="#" [routerLink]="['/articles', 'charte']" [routerLinkActive]="['active']"> 
+    <a href="#" [routerLink]="['/articles', 'charte']" [routerLinkActive]="['active']" (click)="closeMenu()"> 
       La charte
     </a>
-    <a class="button" href="#" [routerLink]="['/milit', 'home']" [routerLinkActive]="['active']">
+    <a class="button" href="#" [routerLink]="['/milit', 'home']" [routerLinkActive]="['active']" (click)="closeMenu()">
       Vous engager
     </a>
   </div>
