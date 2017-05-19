@@ -3,7 +3,7 @@ export abstract class SheetAbstractService {
 
     private cachedData: Promise<any>;
 
-    constructor(protected http: Http, private code: string, private defaultPage: number = 1, private cache = true) {
+    constructor(protected http: Http, private code: string, private filter = false, private defaultPage: number = 1, private cache = true) {
         if (this.cache) {
             this.cachedData = this.getPage();
         }
@@ -25,6 +25,7 @@ export abstract class SheetAbstractService {
     private getPage(page = this.defaultPage) {
         return this.http.get(this.getUrl(page))
             .map(res => res.json().feed.entry)
+            .map(res => this.filter ? res.filter(elmt => elmt.gsx$pending.$t === 'FALSE') : res)
             .toPromise();
     }
 }

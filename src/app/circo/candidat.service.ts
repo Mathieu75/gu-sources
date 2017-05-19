@@ -14,7 +14,7 @@ export class CandidatService extends SheetAbstractService {
   };
 
   constructor(http: Http) {
-    super(http, '13WcWoYZCpLQE9U2q9YCOJRxrdZpNpyK_Z1igQFbpUsU');
+    super(http, '13WcWoYZCpLQE9U2q9YCOJRxrdZpNpyK_Z1igQFbpUsU', true);
   }
 
   // TODO: use Google Script instead
@@ -24,7 +24,6 @@ export class CandidatService extends SheetAbstractService {
   }
 
   addEngagement(engagement: any) {
-
     const toSend = Object.keys(engagement).reduce((acc, key) => `${acc}&${key}=${engagement[key]}`, '').substr(1);
     return this.http.post(this.scriptUrls.engagement, toSend, options).toPromise()
       .then((res) => {
