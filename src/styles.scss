@@ -6,33 +6,43 @@
 default green : 7eb712*/
 
 /* COLOR */
-$body-bg: none;
-$field-valid: #7eb712;
-$field-invalid: #d51317;
+$base-color: #d51317;
+$base-color-light: #e1595C;
+$secondary-color: #7eb712;
+$secondary-color-strong: #5e9702;
+$secondary-color-light: #a9d067;
+$light-grey: #f2f8e7;
 
-$button-bg-hover: #5e9702;
-$button-bg: #7eb712;
+$body-bg: none;
+$field-valid: $secondary-color;
+$field-invalid: $base-color;
+
+$button-bg-hover: $secondary-color-strong;
+$button-bg: $secondary-color;
 $button-text: #fff;
 
-$circo-rslt-bg-hover: #7eb712;
-$circo-rslt-bg: #a9d067;
+$circo-rslt-bg-hover: $secondary-color;
+$circo-rslt-bg: $secondary-color-light;
 $circo-rslt-text: #fff;
 
-$card-bg:#f2f8e7;
+$card-bg: $light-grey;
 
-$card-strong-bg:#d51317;
+$card-strong-bg:$base-color;
 $card-strong-text:#fff;
 
-$candidat-card-bg:#f2f8e7;
-$candidat-card-text:#5e9702;
-$candidat-card-picture-bg:#d51317;
+$link-color: $base-color;
+$link-color-hover: $base-color-light;
 
-$article-note-text: #d51317;
-$article-border-b: #d51317;
+$candidat-card-bg: $light-grey;
+$candidat-card-text: $secondary-color-strong;
+$candidat-card-picture-bg: $base-color;
 
-$header-bg: #d51317;
+$article-note-text: $base-color;
+$article-border-b: $base-color;
+
+$header-bg: $base-color;
 $header-text: #fff;
-$header-a-bg-hover: #e1595C;
+$header-a-bg-hover: $base-color-light;
 
 $input-border:#ccc;
 $input-bg:rgba(0,0,0,0.12);
@@ -55,6 +65,15 @@ header {
         &:hover:not(.button) {
             background-color: $header-a-bg-hover;
         }
+    }
+}
+
+a {
+    text-decoration: none;
+    color: $link-color;
+
+    &:hover {
+        color: $link-color-hover;
     }
 }
 

@@ -34,7 +34,7 @@
       LaGaucheUnie.fr vous offre :
     </h2>
     <ul>
-      <li>Un <a href="#searchbar">espace collaboratif</a> pour partager et retrouver des informations sur tous les candidats
+      <li>Un <a routerLink="/candidat">espace collaboratif</a> pour partager et retrouver des informations sur tous les candidats
         de gauche aux prochaines élections françaises.</li>
       <li>Un <a routerLink="/articles/charte">"label citoyen"</a> permettant d'identifier très clairement les candidat s'engageant
         pour les valeurs de la gauche.</li>
@@ -44,8 +44,6 @@
       <li>Une <a routerLink="/articles/principe">association</a> de fait totalement indépendante, à fortiori de tout parti politique.</li>
     </ul>
   </div>
-
-  <app-circo-search (select)="onSelect($event)" id="searchbar"></app-circo-search>
 
   <div class="card strong">
     Par l’union, vous vaincrez. Étouffez toutes les haines, éloignez tous les ressentiments, soyez unis, vous serez invincibles.

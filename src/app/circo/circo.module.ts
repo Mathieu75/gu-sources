@@ -16,6 +16,7 @@ import { CandidatsListComponent } from './candidats-list/candidats-list.componen
 import { OkViewComponent } from './ok-view/ok-view.component';
 import { CandidatAddComponent } from './candidat-add/candidat-add.component';
 import { CandidatLinkEditComponent } from './candidat-link-edit/candidat-link-edit.component';
+import { CandidatSearchPageComponent } from './candidat-search-page/candidat-search-page.component';
 
 @NgModule({
   imports: [
@@ -35,7 +36,8 @@ import { CandidatLinkEditComponent } from './candidat-link-edit/candidat-link-ed
     CandidatsListComponent,
     OkViewComponent,
     CandidatAddComponent,
-    CandidatLinkEditComponent
+    CandidatLinkEditComponent,
+    CandidatSearchPageComponent
   ],
   exports: [
     CircoSearchComponent,
