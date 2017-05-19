@@ -36,6 +36,10 @@ a {
     padding: 20px;
 }
 
+a.active {
+    background-color: rgba(0, 0, 0, .12);
+}
+
 
 .title-burger,
 .title {

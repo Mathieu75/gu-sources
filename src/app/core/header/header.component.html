@@ -11,16 +11,16 @@
       La Gauche Unie
     </a>
     
-    <a class="menu-home" routerLink="/home">
+    <a class="menu-home" routerLink="/home" [routerLinkActive]="['active']">
       Accueil
     </a>
-    <a href="#" [routerLink]="['/articles', 'principe']"> 
+    <a href="#" [routerLink]="['/articles', 'principe']" [routerLinkActive]="['active']"> 
       Le principe
     </a>
-    <a href="#" [routerLink]="['/articles', 'charte']"> 
+    <a href="#" [routerLink]="['/articles', 'charte']" [routerLinkActive]="['active']"> 
       La charte
     </a>
-    <a class="button" href="#" [routerLink]="['/milit', 'home']">
+    <a class="button" href="#" [routerLink]="['/milit', 'home']" [routerLinkActive]="['active']">
       Vous engager
     </a>
   </div>
