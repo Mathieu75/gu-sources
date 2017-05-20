@@ -1,10 +1,10 @@
 <div class="card wrapper">
-  <div class="picture">
+  <div class="picture" [class.right-candidat]="candidat.groupe === 'RFFJ'">
     <img class="portrait" [src]="candidat.picture || '/assets/unknown.jpg'" />
     <img *ngIf="!empty && candidat.groupeImage" class="parti" [src]="candidat.groupeImage" />
-    <div class="button-wrapper report">
+    <!-- <div class="button-wrapper report">
       <a class="button round"><img src="/assets/icons/report_problem.png" alt="report" /></a>
-    </div>
+    </div> -->
     <div class="button-wrapper edit">
       <a class="button round" (click)="edit()"><img src="/assets/icons/edit-icon.png" alt="edit" /></a>
     </div>

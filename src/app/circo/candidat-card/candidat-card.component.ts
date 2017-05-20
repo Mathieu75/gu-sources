@@ -20,7 +20,8 @@ export class CandidatCardComponent implements OnInit {
     'pcf': '/assets/partis/pcf.png',
     'eelv' : '/assets/partis/eelv.jpg',
     'fbcf' : '/assets/partis/fbcf.png',
-    'fi': '/assets/partis/fi.jpg'
+    'fi': '/assets/partis/fi.jpg',
+    'rffj': '/assets/partis/rffj.png'
   };
 
   @Input() empty = false;

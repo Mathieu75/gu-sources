@@ -13,6 +13,8 @@ $secondary-color-strong: #5e9702;
 $secondary-color-light: #a9d067;
 $light-grey: #f2f8e7;
 
+$light-blue: #D6E6F4;
+
 $body-bg: none;
 $field-valid: $secondary-color;
 $field-invalid: $base-color;
@@ -36,6 +38,7 @@ $link-color-hover: $base-color-light;
 $candidat-card-bg: $light-grey;
 $candidat-card-text: $secondary-color-strong;
 $candidat-card-picture-bg: $base-color;
+$right-candidat-card-picture-bg: $light-blue;
 
 $article-note-text: $base-color;
 $article-border-b: $base-color;
@@ -46,6 +49,8 @@ $header-a-bg-hover: $base-color-light;
 
 $input-border:#ccc;
 $input-bg:rgba(0,0,0,0.12);
+
+
 
 body{
     background-color: $body-bg;
@@ -110,6 +115,9 @@ header {
     }
     .picture {
         background-color: $candidat-card-picture-bg;
+    }
+    .picture.right-candidat {
+        background-color: $right-candidat-card-picture-bg;
     }
 }
 

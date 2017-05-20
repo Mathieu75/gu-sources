@@ -24,12 +24,12 @@ export abstract class SheetCandidatConverter {
             rslt[key] = sheet[this.c2sKey(key)].$t;
         });
         rslt.links = [];
-        for (let i = 2; i < 12; i++) {
-            if (sheet['gsx$lienurl' + (i === 1 ? '' : `${i}`)].$t) {
+        for (let i = 1; i < 12; i++) {
+            if (sheet[`gsx$lienurl${i}`].$t) {
                 rslt.links.push({
                     id: i,
-                    url: sheet['gsx$lienurl' + (i === 1 ? '' : `${i}`)].$t,
-                    texte: sheet['gsx$lientext' + (i === 1 ? '' : `${i}`)].$t
+                    url: sheet[`gsx$lienurl${i}`].$t,
+                    texte: sheet[`gsx$lientext${i}`].$t
                 });
             }
         }
@@ -43,8 +43,8 @@ export abstract class SheetCandidatConverter {
         });
         if (candidat.links) {
             candidat.links.forEach((link) => {
-                sheet[`lien_text${link.id === 1 ? '' : link.id}`] = link.texte;
-                sheet[`lien_url${link.id === 1 ? '' : link.id}`] = link.url;
+                sheet[`lien_text${link.id}`] = link.texte;
+                sheet[`lien_url${link.id}`] = link.url;
             });
         }
         return sheet;
