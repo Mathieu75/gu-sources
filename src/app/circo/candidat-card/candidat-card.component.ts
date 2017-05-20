@@ -16,20 +16,12 @@ export class CandidatCardComponent implements OnInit {
 
   private _candidat: PresCandidat = {};
 
-  private readonly partiIcon = {
-    'pcf': '/assets/partis/pcf.png',
-    'eelv' : '/assets/partis/eelv.jpg',
-    'fbcf' : '/assets/partis/fbcf.png',
-    'fi': '/assets/partis/fi.jpg',
-    'rffj': '/assets/partis/rffj.png'
-  };
-
   @Input() empty = false;
 
   @Input()
   set candidat(candidat: Candidat) {
     this._candidat = candidat;
-    this._candidat.groupeImage = this.partiIcon[this.candidat.groupe.toLowerCase()];
+    this._candidat.groupeImage = `/assets/partis/${this.candidat.groupe.toLowerCase()}.png`;
   };
 
   get candidat() { return this._candidat; };

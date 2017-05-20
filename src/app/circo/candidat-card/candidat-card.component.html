@@ -1,5 +1,5 @@
 <div class="card wrapper">
-  <div class="picture" [class.right-candidat]="candidat.groupe === 'RFFJ'">
+  <div class="picture" [class.right-candidat]="candidat.groupe === 'RFFJ' || candidat.groupe === 'EM'">
     <img class="portrait" [src]="candidat.picture || '/assets/unknown.jpg'" />
     <img *ngIf="!empty && candidat.groupeImage" class="parti" [src]="candidat.groupeImage" />
     <!-- <div class="button-wrapper report">

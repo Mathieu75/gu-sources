@@ -39,10 +39,12 @@
     <div class="form-group">
       <label for="groupe">Groupe</label>
       <select class="form-control" #groupe="ngModel" name="groupe" [(ngModel)]="candidat.groupe" required="true">
-        <option value="FBCF">Faire Battre le Coeur de la France (PS ou EELV Hamonistes)</option> 
-        <option value="PCF">Parti Communiste Français</option>
-        <option value="EELV">Europe Ecologie Les Verts</option>
+        <option value="FBCF">Faire Battre le Coeur de la France (candidat pro-Hamon, s'inscrivant de l'opposition à Macron)</option> 
+        <option value="PCF">Parti Communiste Français (indépendant de La France Insoumise)</option>
+        <option value="EELV">Europe Ecologie Les Verts (ligne Jadot-Cormand)</option>
         <option value="FI">La France Insoumise</option>
+        <option value="RFFJ">Une République Forte pour une France Forte (candidat pro-Valls, s'inscrivant dans une possible majorité Macroniste)</option>
+        <option value="EM">En Marche ? (candidat non investi En Marche ayant soutenu Macron dés le premier tour de la présidentielle)</option>
       </select>
       <div *ngIf="groupe.errors && (groupe.dirty || groupe.touched)" class="input-alert">
         <div [hidden]="!groupe.errors.required">
