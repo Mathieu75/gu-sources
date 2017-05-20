@@ -1,6 +1,8 @@
+import { Candidat } from 'app/circo/candidat.model';
 import { CandidatService } from './../candidat.service';
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { accentFold } from '../../shared/accent-folding';
+import { SearchUtil } from 'app/shared/search.util';
 
 @Component({
   selector: 'app-candidat-search',
@@ -9,8 +11,8 @@ import { accentFold } from '../../shared/accent-folding';
 })
 export class CandidatSearchComponent implements OnInit {
 
-  private candidats: any[];
-  filteredCandidats: any[];
+  private candidats: Candidat[];
+  filteredCandidats: Candidat[];
   model = {
     search: ''
   };
@@ -30,9 +32,8 @@ export class CandidatSearchComponent implements OnInit {
   }
 
   onSearchChange($event) {
-    this.filteredCandidats = this.candidats.filter(candidats => {
-      // TODO: facto
-      return accentFold(candidats.gsx$nom.$t).toUpperCase().includes(accentFold(this.model.search).toUpperCase());
+    this.filteredCandidats = this.candidats.filter(candidat => {
+      return SearchUtil.nonSensitiveTest(this.model.search, candidat, 'nom');
     });
   }
 

@@ -25,6 +25,17 @@ input[type="tel"], input[type="text"] {
     }
 }
 
+app-candidats-list {
+    .add-wrapper {
+        position: initial !important;
+        display: block;
+        text-align: right;
+    }
+    .button-wrapper.report, .button-wrapper.edit {
+        display: none;
+    }
+}
+
 [type="submit"] {
     display: block;
     width: 120px;

@@ -1,3 +1,4 @@
+import { Candidat } from 'app/circo/candidat.model';
 import { CircoService } from './../circo.service';
 import { CandidatService } from '../candidat.service';
 import { Component, OnInit } from '@angular/core';
@@ -11,7 +12,7 @@ import { ActivatedRoute } from '@angular/router';
 export class CandidatsShowComponent implements OnInit {
 
   private circoId: string;
-  candidats: Promise<any[]>;
+  candidats: Promise<Candidat[]>;
 
   constructor(private candidatService: CandidatService, private circoService: CircoService, private route: ActivatedRoute) { }
 

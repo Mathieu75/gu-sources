@@ -3,3 +3,10 @@
     margin: 2em auto;
     font-family: Helvetica, sans-serif;
 }
+
+@media screen and (max-width: 1024px) {
+    .main-container {
+        width: calc(100% - 2em);
+        margin: 1em auto;
+    }
+}

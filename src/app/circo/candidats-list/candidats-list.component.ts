@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-candidats-list',
@@ -11,7 +11,7 @@ export class CandidatsListComponent implements OnInit {
 
   @Input()
   set candidats(candidats: any[]) {
-      this._candidats = candidats || [];
+    this._candidats = candidats || [];
   }
 
   get candidats(): any[] {

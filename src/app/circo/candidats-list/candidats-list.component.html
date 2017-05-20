@@ -1,9 +1,10 @@
-<div>
+<div class="list-wrapper">
+  <p>Pour ajouter un candidat de gauche abscent de cette liste, clickez sur le boutton "+" en haut à droite</p>
+  <div class="add-wrapper">
+    <a class="button round" routerLink="/circo/candidat/add">+</a>
+  </div>
   <app-candidat-card *ngFor="let candidat of candidats" [candidat]="candidat" (click)="onSelect(candidat)">
   </app-candidat-card>
   <app-candidat-card *ngIf="candidats.length < 1" [empty]="true">
   </app-candidat-card>
-  <div class="add-wrapper">
-    <a class="button round" routerLink="/circo/candidat/add">+</a>
-  </div>
 </div>

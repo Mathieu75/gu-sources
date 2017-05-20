@@ -1,20 +1,24 @@
+import { Candidat } from 'app/circo/candidat.model';
 import { FormStatesService } from './../../core/form-states.service';
 import { Router, NavigationStart } from '@angular/router';
 import { CandidatService } from './../candidat.service';
 import { Http } from '@angular/http';
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-candidat-subscribe-form',
   templateUrl: './candidat-subscribe-form.component.html',
-  styleUrls: ['./candidat-subscribe-form.component.scss']
+  styleUrls: ['./candidat-subscribe-form.component.scss'],
+    encapsulation: ViewEncapsulation.None
+
 })
 export class CandidatSubscribeFormComponent implements OnInit {
 
+  // TODO : define Engagement class
   engagement: any = {};
-  candidat: any = {};
-  circoId: number;
+  candidat: Candidat = {};
+  circoId: string;
 
   private readonly stateKey = 'candidat-engagement';
   private shouldSave = true;
@@ -38,17 +42,17 @@ export class CandidatSubscribeFormComponent implements OnInit {
 
   }
 
-  onCircoSelect(circoId: number) {
+  onCircoSelect(circoId: string) {
     this.circoId = circoId;
-    if (this.candidat.gsx$circo && this.candidat.gsx$circo.$t !== this.circoId) {
+    if (this.candidat.circo !== this.circoId) {
       this.engagement.candidat = null;
     }
   }
 
   onCandidatSelect(candidat) {
     this.candidat = candidat;
-    this.engagement.candidatId = candidat.gsx$id.$t;
-    this.circoId = candidat.gsx$circo.$t;
+    this.engagement.candidatId = candidat.id;
+    this.circoId = candidat.circo;
   }
 
   onSubmit() {

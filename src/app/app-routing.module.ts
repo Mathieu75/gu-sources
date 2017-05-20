@@ -1,3 +1,4 @@
+import { CandidatEditComponent } from './circo/candidat-edit/candidat-edit.component';
 import { CandidatSearchPageComponent } from './circo/candidat-search-page/candidat-search-page.component';
 import { CandidatAddComponent } from './circo/candidat-add/candidat-add.component';
 import { SubscribeComponent } from './milit/subscribe/subscribe.component';
@@ -26,6 +27,10 @@ const routes: Routes = [
   {
     path: 'circo/candidat/add',
     component: CandidatAddComponent
+  },
+  {
+    path: 'circo/candidat/edit/:id',
+    component: CandidatEditComponent,
   },
   {
     path: 'candidat',
