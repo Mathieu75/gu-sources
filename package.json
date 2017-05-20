@@ -8,7 +8,8 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "deploy": "yarn build && git checkout -b dist-tmp && git add --force dist/ && git push pages `git subtree split --prefix dist dist-tmp`:master --force && git checkout master && git branch -D dist-tmp"
   },
   "private": true,
   "dependencies": {
