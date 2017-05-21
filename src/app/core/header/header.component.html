@@ -3,13 +3,17 @@
     <path d="M0 0v3h17V0H0zm0 9h17V6H0v3zm0 6h17v-3H0v3z"></path>
   </svg>
   <a routerLink="/home" class="title-burger">
-    Label Gauche
+    <span class="word-1">Solidaires,</span>
+    <span class="word-2">Ecologistes,</span>
+    <span class="word-3">Engagé-e-s !</span>
   </a>
 
   <div class="menu" [class.active]="menu"  (click)="closeMenu()">
-    <a routerLink="/home" class="title">
-      Label Gauche
-    </a>
+    <div class="title">
+      <span class="word-1">Solidaires</span>
+      <span class="word-2">Ecologistes</span>
+      <span class="word-3">Engagé-e-s !</span>
+    </div>
     
     <a class="menu-home" routerLink="/home" [routerLinkActive]="['active']">
       Accueil
