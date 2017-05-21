@@ -8,6 +8,8 @@ default green : 7eb712*/
 /* COLOR */
 $base-color: #d51317;
 $base-color-light: #e1595C;
+$base-color-dark:#bb1014;
+
 $secondary-color: #7eb712;
 $secondary-color-strong: #5e9702;
 $secondary-color-light: #a9d067;
@@ -43,6 +45,7 @@ $article-border-b: $base-color;
 $header-bg: $base-color;
 $header-text: #fff;
 $header-a-bg-hover: $base-color-light;
+$header-a-bg-active: $base-color-dark;
 
 $input-border:#ccc;
 $input-bg:rgba(0,0,0,0.12);
@@ -73,6 +76,10 @@ header {
         color: $header-text !important;
         &:hover:not(.button) {
             background-color: $header-a-bg-hover;
+        }
+        
+        &.active {
+            background-color: $header-a-bg-active;
         }
     }
 }
