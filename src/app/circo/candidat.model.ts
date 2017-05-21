@@ -7,6 +7,7 @@ export class Candidat {
     picture?: string;
     edited?: string;
     pending?: string;
+    autreGroupes?: string[];
     links?: { id: number, texte: string, url: string }[];
 }
 
@@ -24,6 +25,7 @@ export abstract class SheetCandidatConverter {
             rslt[key] = sheet[this.c2sKey(key)].$t;
         });
         rslt.links = [];
+        rslt.autreGroupes = sheet[this.c2sKey('autre_groupes')].$t.split(',').filter(elt => !!elt);
         for (let i = 1; i < 12; i++) {
             if (sheet[`gsx$lienurl${i}`].$t) {
                 rslt.links.push({
@@ -41,6 +43,9 @@ export abstract class SheetCandidatConverter {
         candidatBaseKeys.forEach(key => {
             sheet[key] = candidat[key];
         });
+        if (candidat.autreGroupes) {
+            sheet.autre_groupes = candidat.autreGroupes.filter(elt => !!elt).join(',');
+        }
         if (candidat.links) {
             candidat.links.forEach((link) => {
                 sheet[`lien_text${link.id}`] = link.texte;

@@ -1,0 +1,29 @@
+.delete.icon {
+    float: right;
+}
+
+.wrapper {
+    border: 4px dashed #ccc;
+    padding: 2em;
+}
+
+select {
+    margin: 0.5em 0;
+    width: calc(100% - 60px);
+}
+
+.button.save {
+    display: inline-block;
+}
+
+.add-wrapper {
+    text-align: center;
+}
+
+label {
+    margin-bottom: 1em;
+}
+
+.form-group {
+    margin: 2em 0;
+}
