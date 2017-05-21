@@ -1,17 +1,24 @@
 <div class="card wrapper">
-  <div class="picture">
+  <div class="picture" [class.right-candidat]="candidat.groupe === 'RFFJ' || candidat.groupe === 'EM'">
     <img class="portrait" [src]="candidat.picture || '/assets/unknown.jpg'" />
     <img *ngIf="!empty && candidat.groupeImage" class="parti" [src]="candidat.groupeImage" />
+    <!-- <div class="button-wrapper report">
+      <a class="button round"><img src="/assets/icons/report_problem.png" alt="report" /></a>
+    </div> -->
+    <div class="button-wrapper edit">
+      <a class="button round" (click)="edit()"><img src="/assets/icons/edit-icon.png" alt="edit" /></a>
+    </div>
   </div>
   <div class="content">
     <h3 *ngIf="!empty">{{candidat.prenom}} {{candidat.nom}}</h3>
     <h3 *ngIf="empty">Aucun candidat correspondant à votre recherche n'est enregistré pour l'instant sur ce site.</h3>
     <ul class="no-list">
-      <a [href]="lien.url" *ngFor="let lien of candidat.liens">
+      <a [href]="lien.url" *ngFor="let lien of candidat.links">
         <li class="button">
           {{lien.texte}}
         </li>
       </a>
+      <div *ngIf="!candidat.links || candidat.links.length < 1" class="no-link">Il n'y a pour l'heure aucune information complémentaire pour ce candidat.</div>
     </ul>
   </div>
 </div>

@@ -1,15 +1,15 @@
 <form class="wrapper" #linksForm="ngForm">
   <div class="form-group" *ngFor="let link of links; let i = index; trackBy: trackLink">
     <span class="delete icon" (click)="removeLink(i)"></span>
-    <label>Texte</label>
-    <input type="text" class="form-control" [(ngModel)]="link.texte" #text="ngModel" required name="url"/>
+    <label for="name_{{i}}">Texte</label>
+    <input type="text" class="form-control" [(ngModel)]="link.texte" #text="ngModel" required name="url_{{i}}"/>
     <div *ngIf="text.errors && (text.dirty || text.touched)" class="input-alert">
       <div [hidden]="!text.errors.required">
         Vous devez entrer une description pour ce lien.
       </div>
     </div>
-    <label>URL</label>
-    <input type="text" class="form-control" [(ngModel)]="link.url" #url="ngModel" required pattern="(https?:\/\/.+)" name="texte"/>
+    <label for="texte_{{i}}">URL</label>
+    <input type="text" class="form-control" [(ngModel)]="link.url" #url="ngModel" required pattern="(https?:\/\/.+)" name="texte_{{i}}"/>
     <div *ngIf="url.errors && (url.dirty || url.touched)" class="input-alert">
       <div [hidden]="!url.errors.required">
         Vous devez entrer une adresse pour ce lien.

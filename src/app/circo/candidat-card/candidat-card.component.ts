@@ -1,4 +1,11 @@
+import { Router } from '@angular/router';
+import { CandidatService } from './../candidat.service';
 import { Component, OnInit, Input } from '@angular/core';
+import { SheetCandidatConverter, Candidat } from 'app/circo/candidat.model';
+
+class PresCandidat extends Candidat {
+  groupeImage?: string;
+}
 
 @Component({
   selector: 'app-candidat-card',
@@ -7,40 +14,26 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class CandidatCardComponent implements OnInit {
 
-  private _candidat: any = {};
-
-  private readonly partiIcon = {
-    'pcf': '/assets/partis/pcf.png',
-    'eelv' : '/assets/partis/eelv.jpg',
-    'fbcf' : '/assets/partis/fbcf.png',
-    'fi': '/assets/partis/fi.jpg'
-  };
+  private _candidat: PresCandidat = {};
 
   @Input() empty = false;
 
   @Input()
-  set candidat(candidat: any) {
-    this._candidat.nom = candidat.gsx$nom.$t;
-    this._candidat.prenom = candidat.gsx$prenom.$t;
-    this._candidat.picture = candidat.gsx$picture.$t;
-    this._candidat.groupeImage = this.partiIcon[candidat.gsx$groupe.$t.toLowerCase()];
-
-    this._candidat.liens = [];
-    for (let i = 2; i < 12; i++) {
-      if (candidat['gsx$lienurl' + (i === 1 ? '' : `${i}`)].$t) {
-          this._candidat.liens.push({
-            url: candidat['gsx$lienurl' + (i === 1 ? '' : `${i}`)].$t,
-            texte: candidat['gsx$lientext' + (i === 1 ? '' : `${i}`)].$t
-          });
-      }
-    }
+  set candidat(candidat: Candidat) {
+    this._candidat = candidat;
+    this._candidat.groupeImage = `/assets/partis/${this.candidat.groupe.toLowerCase()}.png`;
   };
 
   get candidat() { return this._candidat; };
 
-  constructor() { }
+  constructor(private candidatServ: CandidatService, private router: Router) { }
 
   ngOnInit() {
+  }
+
+  edit() {
+    this.candidatServ.setForEdition(this.candidat);
+    this.router.navigate(['/circo', 'candidat', 'edit', this.candidat.id]);
   }
 
 }

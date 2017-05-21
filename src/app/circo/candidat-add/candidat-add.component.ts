@@ -1,7 +1,7 @@
 import { Link } from './../candidat-link-edit/candidat-link-edit.component';
 import { Router } from '@angular/router';
 import { CandidatService } from './../candidat.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-candidat-add',
@@ -10,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CandidatAddComponent implements OnInit {
 
-  candidat: any = {};
+  @Input() candidat: any = {};
   readonlyPictureUrl = false;
 
   constructor(private candidatServ: CandidatService, private router: Router) { }
@@ -34,10 +34,7 @@ export class CandidatAddComponent implements OnInit {
   }
 
   onLinksSaved(links: Link[]) {
-    links.forEach((link) => {
-        this.candidat[`lien_text${ link.id === 1 ? '' : link.id }`] = link.texte;
-        this.candidat[`lien_url${ link.id === 1 ? '' : link.id }`] = link.url;
-    });
+    this.candidat.links = links;
   }
 
 }

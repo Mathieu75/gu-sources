@@ -21,6 +21,13 @@ h3 {
     padding: 30px;
     border-bottom-left-radius: 5px;
     border-top-left-radius: 5px;
+    position: relative;
+}
+
+@media screen and (max-width: 1024px) {
+    .content {
+        padding: 10px;
+    }
 }
 
 a {
@@ -34,4 +41,16 @@ a {
 
 .portrait, .parti {
     width: 100%;
+}
+
+.button-wrapper.edit {
+    float: right;
+}
+
+.button-wrapper.report {
+    float: left;
+}
+
+.no-link {
+    text-align: center;
 }

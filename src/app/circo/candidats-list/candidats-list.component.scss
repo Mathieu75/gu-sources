@@ -1,3 +1,16 @@
+.list-wrapper {
+    position: relative;
+}
+
 .add-wrapper {
-    text-align: right;
+   position: fixed;
+   top: 100px;
+   right: 0;
+   margin: 0 2em;
+}
+
+@media screen and (max-width: 1024px) {
+    .add-wrapper {
+        position: absolute;
+    }
 }

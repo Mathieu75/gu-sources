@@ -25,6 +25,7 @@ export class CircoSearchComponent implements OnInit {
 
   onSearchChange($event) {
     this.filteredCircos = this.circos.filter(circos => {
+      // TODO: use SearchUtil
       return accentFold(circos.gsx$nom.$t).toUpperCase().includes(accentFold(this.model.search).toUpperCase());
     });
   }
