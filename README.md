@@ -1,4 +1,6 @@
-# GU
+# engage-e-s.fr
+
+Site principal des Solidaires et Ecologistes Engagé-e-s.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.2.
 
