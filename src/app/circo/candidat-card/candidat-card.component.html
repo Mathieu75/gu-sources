@@ -2,6 +2,9 @@
   <div class="picture" [class.right-candidat]="candidat.groupe === 'RFFJ' || candidat.groupe === 'EM'">
     <img class="portrait" [src]="candidat.picture || '/assets/unknown.jpg'" />
     <img *ngIf="!empty && candidat.groupeImage" class="parti" [src]="candidat.groupeImage" />
+    <div *ngFor="let autreGroupe of candidat.autreGroupes" class="autre-partis-wrapper">
+      <img *ngIf="!empty" class="parti min" [src]="imageUrl(autreGroupe)" />
+    </div>
     <!-- <div class="button-wrapper report">
       <a class="button round"><img src="/assets/icons/report_problem.png" alt="report" /></a>
     </div> -->

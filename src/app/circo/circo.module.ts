@@ -1,3 +1,4 @@
+import { CandidatGroupesEditComponent } from './candidat-groupes-edit/candidat-groupes-edit.component';
 import { SharedModule } from './../shared/shared.module';
 import { CandidatService } from './candidat.service';
 import { RouterModule } from '@angular/router';
@@ -39,7 +40,8 @@ import { CandidatEditComponent } from './candidat-edit/candidat-edit.component';
     CandidatAddComponent,
     CandidatLinkEditComponent,
     CandidatSearchPageComponent,
-    CandidatEditComponent
+    CandidatEditComponent,
+    CandidatGroupesEditComponent
   ],
   exports: [
     CircoSearchComponent,

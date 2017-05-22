@@ -52,6 +52,11 @@ a {
     text-align: center;
 }
 
+.autre-partis-wrapper {
+    width: 40%;
+    padding: 0 3%; 
+    display: inline-block;
+}
 
 @media screen and (max-width: 1024px) {
     .content {
@@ -60,13 +65,6 @@ a {
 }
 
 @media screen and (max-width: 768px) {
-    .button-wrapper.edit {
-        float: none;
-        position: absolute;
-        right: 20px;
-        top: 60px;
-    }
-    
     .card.wrapper{
         flex-direction: column;
         
@@ -74,14 +72,22 @@ a {
         h3{
             text-align: left;
         }
+
+        .button-wrapper.edit {           
+           padding: 20px 0;
+        }
         
         .picture{
             width: auto;
+            text-align: left;
 
+            .autre-partis-wrapper,
             .parti,
             .portrait{
-                height: 80px;
-                width: auto;
+                width: 75px;
+                vertical-align: middle;
+                display: inline-block;
+                padding: 0 3%;
             }
         }
     }

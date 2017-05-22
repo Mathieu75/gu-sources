@@ -11,11 +11,11 @@
 
 @media screen and (max-width: 1024px) {
     .add-wrapper {
-        position: absolute;
+        position: initial;
+        text-align: right;
     }
 
     .round {
-        position: fixed;
         top: 65px;
         right: 20px;
         z-index: 1000;

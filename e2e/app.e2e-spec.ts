@@ -1,10 +1,10 @@
-import { GaucheUniePage } from './app.po';
+import { EngageesPage } from './app.po';
 
-describe('gauche-unie App', () => {
-  let page: GaucheUniePage;
+describe('engage-e-s App', () => {
+  let page: EngageesPage;
 
   beforeEach(() => {
-    page = new GaucheUniePage();
+    page = new EngageesPage();
   });
 
   it('should display message saying app works', () => {

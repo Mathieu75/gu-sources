@@ -21,7 +21,7 @@ export class CandidatCardComponent implements OnInit {
   @Input()
   set candidat(candidat: Candidat) {
     this._candidat = candidat;
-    this._candidat.groupeImage = `/assets/partis/${this.candidat.groupe.toLowerCase()}.png`;
+    this._candidat.groupeImage = this.imageUrl(this.candidat.groupe);
   };
 
   get candidat() { return this._candidat; };
@@ -36,4 +36,7 @@ export class CandidatCardComponent implements OnInit {
     this.router.navigate(['/circo', 'candidat', 'edit', this.candidat.id]);
   }
 
+  imageUrl(parti: string) {
+    return `/assets/partis/${parti.toLowerCase()}.png`;
+  }
 }

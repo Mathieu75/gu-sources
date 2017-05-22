@@ -1,0 +1,25 @@
+<form class="wrapper" #groupesForm="ngForm">
+  <div class="form-group" *ngFor="let groupe of groupes; let i = index; trackBy: trackGroupes">
+    <span class="delete icon" (click)="removeGroupe(i)"></span>
+    <select class="form-control" #groupe="ngModel" [required]="!!groupes[i+1]" name="groupe_{{i}}" [(ngModel)]="groupes[i]" (ngModelChange)="saveGroupes()">
+      <option value="PCF">Parti Communiste Français</option>
+      <option value="EELV">Europe Ecologie Les Verts</option>
+      <option value="FI">La France Insoumise</option>
+      <option value="PS">Parti Socialiste</option>
+      <option value="MRC">Mouvement Républicain et Citoyen</option>
+      <option value="PRG">Parti Radical de Gauche</option>
+      <option value="PA">Parti Animaliste</option>
+    </select>
+    <div *ngIf="groupe.errors" class="input-alert">
+      <div [hidden]="!groupe.errors.required">
+        Vous devez selectionnez ce groupe si vous en avez selectionné un dans le champs suivant, ou supprimer ce champs en cliquant sur le button "x" à sa droite.
+      </div>
+    </div>
+  </div>
+
+
+  <div class="add-wrapper">
+    <div class="button round" (click)="addGroupe()" *ngIf="groupes.length < 10">+</div>
+  </div>
+
+</form>

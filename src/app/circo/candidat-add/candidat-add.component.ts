@@ -37,4 +37,12 @@ export class CandidatAddComponent implements OnInit {
     this.candidat.links = links;
   }
 
+  onSaveAutresGroupes(groupes) {
+    this.candidat.autreGroupes = groupes;
+  }
+
+  autreGroupesSelected() {
+    return this.candidat.autreGroupes && this.candidat.autreGroupes.length > 0 && this.candidat.autreGroupes[0]
+  }
+
 }

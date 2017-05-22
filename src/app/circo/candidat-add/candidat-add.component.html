@@ -37,21 +37,29 @@
       </div>
     </div>
     <div class="form-group">
-      <label for="groupe">Groupe</label>
-      <select class="form-control" #groupe="ngModel" name="groupe" [(ngModel)]="candidat.groupe" required="true">
+      <label for="groupe">Groupe principal</label>
+      <select class="form-control" #groupe="ngModel" name="groupe" [(ngModel)]="candidat.groupe" [required]="autreGroupesSelected()">
+        <option value="">-- aucun groupe connu --</option>
         <option value="FBCF">Faire Battre le Coeur de la France (candidat pro-Hamon, s'inscrivant de l'opposition à Macron)</option> 
         <option value="PCF">Parti Communiste Français (indépendant de La France Insoumise)</option>
-        <option value="EELV">Europe Ecologie Les Verts (ligne Jadot-Cormand)</option>
+        <option value="EELV">Europe Ecologie Les Verts</option>
         <option value="FI">La France Insoumise</option>
-        <option value="RFFJ">Une République Forte pour une France Forte (candidat pro-Valls, s'inscrivant dans une possible majorité Macroniste)</option>
+        <option value="RFFJ">Une République Forte pour une France Forte (candidat PS pro-Valls, s'inscrivant dans une possible majorité Macroniste)</option>
         <option value="EM">En Marche ? (candidat non investi En Marche ayant soutenu Macron dés le premier tour de la présidentielle)</option>
+        <option value="PS">Parti Socialiste (ligne Cambadelis ou indéterminée)</option>
       </select>
-      <div *ngIf="groupe.errors && (groupe.dirty || groupe.touched)" class="input-alert">
+      <div *ngIf="groupe.errors" class="input-alert">
         <div [hidden]="!groupe.errors.required">
-          Vous devez renseigner le groupe du candidat.
+          Selectionnez un groupe principal avant d'ajouter un ou plusieurs autres groupes, ou n'en sélectionnez aucune.
         </div>
       </div>
     </div>
+
+    <p class="comment">
+      Autre groupes et soutiens
+    </p>
+
+    <app-candidat-groupes-edit (save)="onSaveAutresGroupes($event)"></app-candidat-groupes-edit>
 
     <p class="comment">
       Afin d'illuster la fiche du candidat, vous pouvez donner le lien vers une "image de profil", ou un uploader une.
