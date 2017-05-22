@@ -13,4 +13,11 @@
     .add-wrapper {
         position: absolute;
     }
+
+    .round {
+        position: fixed;
+        top: 65px;
+        right: 20px;
+        z-index: 1000;
+    }
 }

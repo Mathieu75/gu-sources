@@ -87,9 +87,10 @@ header {
             background-color: $header-a-bg-active;
         }
     }
+    .menu.active {
+        background-color: $header-bg;
+    }
 }
-
-
 
 
 .circo{

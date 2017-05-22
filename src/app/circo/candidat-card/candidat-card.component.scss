@@ -24,12 +24,6 @@ h3 {
     position: relative;
 }
 
-@media screen and (max-width: 1024px) {
-    .content {
-        padding: 10px;
-    }
-}
-
 a {
     text-decoration: none;
 
@@ -45,6 +39,9 @@ a {
 
 .button-wrapper.edit {
     float: right;
+    .button.round{
+        margin: 0;
+    }
 }
 
 .button-wrapper.report {
@@ -53,4 +50,39 @@ a {
 
 .no-link {
     text-align: center;
+}
+
+
+@media screen and (max-width: 1024px) {
+    .content {
+        padding: 10px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .button-wrapper.edit {
+        float: none;
+        position: absolute;
+        right: 20px;
+        top: 60px;
+    }
+    
+    .card.wrapper{
+        flex-direction: column;
+        
+        .no-link,
+        h3{
+            text-align: left;
+        }
+        
+        .picture{
+            width: auto;
+
+            .parti,
+            .portrait{
+                height: 80px;
+                width: auto;
+            }
+        }
+    }
 }

@@ -66,6 +66,8 @@ a {
         &.active {
             display: block;
             padding-bottom: 15px; 
+            position: fixed;
+            z-index: 1000;
         }
 
         a {
