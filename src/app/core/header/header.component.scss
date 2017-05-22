@@ -76,6 +76,7 @@ a.active {
 
     .menu {
         display: none;
+        margin-top: 1em;
 
         &.active {
             display: block;
@@ -86,7 +87,7 @@ a.active {
             display: block;
         }
 
-        a.title {
+        .title {
             display: none;
         }
 
